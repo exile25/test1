@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    
+    background: linear-gradient(to bottom, #6badf300, #23166e5b); /* 使用蓝色渐变 */
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+
+    background-color: #ffffff;
+    }
+
+
+
+/* 标题和背景 */
+
+.container{
+    background-image: url("img/背景1.jpg");
+    background-size: cover; /* 背景图覆盖整个元素 */
+    background-repeat: no-repeat; /* 不重复背景图 */
+    background-position: top; /* 居中背景图 */
+}
+.header {
+    display: flex; /* 让 header 使用 flex 布局 */
+    justify-content: space-between; /* 确保文字内容在左侧，图片在右侧 */
+    align-items: center; /* 垂直居中对齐 */
+    padding: 0 20px; /* 给 header 添加左右内边距 */
+    height: 100vh;
+    
+   }
+
+.text-content {
+    display: flex;
+    flex-direction: column; /* 文字内容垂直排列 */
+    padding-right:20px; /* 文字内容右侧留白 */
+    max-width: 60%;
+    text-align: left; /* 文字内容左对齐 */
+    padding-left: 50px;
+}
+.header-image {
+    max-width: 100%; /* 最大宽度为100% */
+    height: auto; /* 保持图片比例 */
+    margin-left: 5px; /* 图片与文字之间的间距，根据需要调整 */
+    
+}
+
+.image-carousel {
+    position: relative;
+    overflow: hidden; /* 隐藏超出部分 */
+    width: 100%; /* 根据需要调整宽度 */
+    max-width: 600px; /* 设置最大宽度 */
+    height: 80vh; /* 设置适当高度 */
+    margin-bottom: 20px; /* 增加下边距 */
+    margin-top: 200px;
+    margin-right:100px;
+    z-index: 10; /* 确保轮播图在上方 */
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease; /* 添加平滑过渡效果 */
+}
+
+.carousel-image {
+    min-width: 100%; /* 每张图片占满轮播区域 */
+    height: 100%; /* 保持图片比例 */
+    object-fit: cover; /* 图片缩放 */
+}
+
+
+
+.header-mobile {
+    font-size: 1em;
+    margin-top: 50px;
+}
+.text-mobile2 {
+    font-size: large;
+   
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: left;
+}
+.text-mobile1{
+    text-align: center;
+  
+    font-size: 2em;
+    margin-bottom: 0px;
+}
+/* 三个问句的字体样式 */
+.text-mobile1 h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+    font-weight: 500;
+}
+
+.text-mobile2 h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+    font-weight: 500;
+}
+
+.header h1 {
+    font-size: 6em;
+    
+    color: #fffffff9;
+    text-shadow: 
+
+        4px 4px 0 rgba(0, 0, 0, 0.548),  /* 第二层阴影 */
+        10px 10px 10px rgba(0, 0, 0, 0.669); 
+}
+
+.header-title {
+    position: relative; /* 使其成为定位上下文 */
+}
+
+.year {
+    position: absolute; /* 绝对定位 */
+    top: -0.00001em; /* 根据需要微调，调整高度 */
+    left: 100%; /* 紧贴右侧 */
+    font-size: 0.3em; /* 设置较小的字体大小 */
+    color: #ffffff; /* 设置字体颜色 */
+    margin-left:-70px; /* 可以加入一些左边距 */
+   
+}
+
+.header h2 {
+    font-size: 4em;
+    font-weight: 1000;
+    color: #ffffff;
+    text-shadow:
+    4px 4px 0 rgba(0, 0, 0, 0.548),  /* 第二层阴影 */
+    10px 10px 10px rgba(0, 0, 0, 0.669); 
+}
+.header h3{
+    font-size: 2.5em;
+    font-weight: 5000;
+    color: #ffffff;
+    text-shadow:
+    4px 4px 0 rgba(0, 0, 0, 0.548),  /* 第二层阴影 */
+    10px 10px 10px rgba(0, 0, 0, 0.669); 
+}
+
+
+
+
+
+.section {
+    text-align: center;
+    margin: 80px 0;
+    padding: 20px;
+}
+
+
+
+
+.content-block {
+    margin: 0; /* 取消外边距，保持紧密连接 */
+    padding: 40px; /* 为 content-block 添加内边距 */
+    position: relative;
+    
+    background-position: top; /* 居中背景图 */
+
+    background-size: cover; /* 确保背景图覆盖整个区域 */
+    background-repeat: no-repeat; /* 不重复背景图 */
+    color: #ffffff; /* 文字颜色 */
+}
+
+.section-content {
+    max-width: 1200px; /* 设置最大宽度 */
+    margin: 0 auto; /* 居中对齐 */
+    text-align: center; /* 文字居中 */
+}
+
+.section-title {
+    font-size: 2em; /* 调整标题字体大小 */
+    margin-bottom: 20px; /* 增加标题下方间距 */
+}
+
+/* 根据实际需求为具体 images 和 block-item 添加样式 */
+.images {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.block-items {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.block-item {
+    background-color: rgba(255, 255, 255, 0.1); /* 半透明背景 */
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%; /* 固定宽度以保持比例 */
+    line-height: 1.8; /* 行高 */
+}
+
+
