@@ -13,8 +13,8 @@ setInterval(showNextImage, 3000);
 
 
 
-document.querySelector('.scroll-button').addEventListener('click', function(e) {
-    e.preventDefault(); // 阻止默认行为
-    const target = document.getElementById('section1');
-    target.scrollIntoView({ behavior: 'smooth' }); // 平滑滚动到目标
-});
+document.getElementById('scrollButton').onclick = function() {
+    document.getElementById('section1').scrollIntoView({ 
+        behavior: 'smooth' 
+    });
+};

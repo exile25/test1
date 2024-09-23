@@ -147,6 +147,17 @@ body {
 }
 
 
+/* 按钮样式 */
+#scrollButton {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* 鼠标悬停时改变样式 */
+#scrollButton:hover {
+    transform: scale(1.1); /* 放大10% */
+    opacity: 0.8; /* 改变透明度 */
+    cursor:pointer;
+}
 
 
 
