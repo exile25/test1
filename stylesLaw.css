@@ -1,0 +1,44 @@
+body {
+    background-image: url('img/law背景.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    font-family: 'Arial', sans-serif; /* 设置字体 */
+    color: #333; /* 字体颜色 */
+    padding: 20px; /* 内边距 */
+    line-height: 1.6; /* 行间距 */
+}
+
+h1 {
+    text-align: center; /* 居中对齐 */
+    font-size: 2.5em; /* 字体大小 */
+    margin-bottom: 20px; /* 下外边距 */
+    color: #6b57ff; /* 颜色 */
+
+}
+
+div{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+h2 {
+    font-size: 1.8em; /* 字体大小 */
+    color: #00ffff; /* 颜色 */
+    margin-top: 30px; /* 上外边距 */
+}
+
+p{
+    font-size: 1.3em;
+    color:aliceblue;
+}
+
+#top {
+    font-size: 1.3em;
+    color: #333;
+}
+
+ul {
+    color: white; /* 将<ul>内文字设置为白色 */
+    font-size: 1em; /* 设置列表字体大小 */
+}
+
