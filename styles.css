@@ -215,6 +215,46 @@ body {
 
 
 
+
+/*网络威胁图片滚动器*/
+.scroll-container {
+    overflow: hidden;
+    width: 1200px; /* 容器的宽度 */
+    height: 100px; /* 容器的高度 */
+    border: 2px solid #ccc;
+    position: relative;
+    margin: 50px auto;
+}
+
+.scroll-wrapper {
+    display: flex;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+}
+
+.scroll-images {
+    display: flex;
+}
+
+.scroll-images a {
+    margin-right: 10px; /* 图片之间的边距 */
+}
+
+.scroll-images img {
+    height: 100%; /* 保持图片高度与容器一致 */
+    width: auto; /* 宽度自动调整以保持比例 */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
 /*画布*/
 canvas {
     border: 2px solid rgba(0, 0, 0, 0.162);

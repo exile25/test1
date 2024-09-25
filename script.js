@@ -141,3 +141,17 @@ const canvas = document.getElementById('animationCanvas');
 
     // 启动动画
     init();
+
+
+/*图片滚动播放器*/
+const scrollWrapper = document.querySelector('.scroll-wrapper');
+
+// 鼠标进入停止滚动
+scrollWrapper.addEventListener('mouseenter', () => {
+    scrollWrapper.style.animationPlayState = 'paused';
+});
+
+// 鼠标离开继续滚动
+scrollWrapper.addEventListener('mouseleave', () => {
+    scrollWrapper.style.animationPlayState = 'running';
+});
