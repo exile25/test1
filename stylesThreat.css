@@ -1,0 +1,39 @@
+body {
+    font-family: 'Arial', sans-serif; /* 设置字体 */
+    font-size: large;
+    line-height: 1.6; /* 行间距 */
+    padding-left: 150px; /* 内边距 */
+    padding-right: 150px;
+    background-color: #f9f9f9; /* 背景颜色 */
+    color: #333; /* 字体颜色 */
+}
+
+h1 {
+    text-align: center; /* 标题居中 */
+    color: #2c3e50;
+}
+
+h2 {
+    color: #2980b9; /* 二级标题颜色 */
+    margin-top: 30px;
+}
+
+h3 {
+    color: #c0392b; /* 三级标题颜色 */
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 20px; /* 列表缩进 */
+}
+
+/* 段落缩进 */
+p {
+    text-indent: 2em; /* 每个自然段前面缩进2个汉字的宽度 */
+}
+
+.reference {
+    margin-top: 40px;
+    font-style: italic; /* 参考文献斜体 */
+}
