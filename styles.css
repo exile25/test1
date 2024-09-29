@@ -82,16 +82,41 @@ body {
    
     margin-top: 50px;
     margin-bottom: 100px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
     text-align: left;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: transform 5s ease, opacity 5s ease; /* 渐变效果 */
 }
+.text-mobile2.visible{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.text-mobile2 h1{
+    font-size: 3em;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
 .text-mobile1{
     text-align: center;
   
     font-size: 2em;
     margin-bottom: 0px;
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: transform 5s ease, opacity 5s ease; /* 渐变效果 */
 }
+    
+.text-mobile1.visible{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
 /* 三个问句的字体样式 */
 .text-mobile1 h1{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -216,14 +241,26 @@ body {
 
 
 
+
+/* 法律法规图片 */
+.laws{
+    height: 100%;
+    width:auto;
+    border-radius: 10px;
+}
+
 /*网络威胁图片滚动器*/
 .scroll-container {
+
+
     overflow: hidden;
     width: 1200px; /* 容器的宽度 */
-    height: 100px; /* 容器的高度 */
-    border: 2px solid #ccc;
+    height: 350px; /* 容器的高度 */
+    border: 2px solid #cccccc1b;
     position: relative;
     margin: 50px auto;
+    
+    background-color: rgba(0, 255, 255, 0.333);
 }
 
 .scroll-wrapper {
@@ -234,16 +271,22 @@ body {
 
 .scroll-images {
     display: flex;
+
 }
 
 .scroll-images a {
-    margin-right: 10px; /* 图片之间的边距 */
+    margin-right: 100px; /* 图片之间的边距 */
+    border: #fcfeff;
 }
 
 .scroll-images img {
-    height: 100%; /* 保持图片高度与容器一致 */
-    width: auto; /* 宽度自动调整以保持比例 */
+    
+    width: auto; /* 设置宽度为100% */
+    height: 350px; /* 高度自动 */
+    object-fit: contain; /* 完整显示，保持比例，可能会有空白 */
 }
+
+
 
 @keyframes scroll {
     0% {
@@ -257,18 +300,21 @@ body {
 
 /*画布*/
 canvas {
-    border: 2px solid rgba(0, 0, 0, 0.162);
+    border: 2px solid rgba(0, 0, 0, 0);
     display: block;
     margin: 20px auto;
-    background: #87cfeb14; /* 添加一个天空背景 */
+    background: #87cfeb00; /* 添加一个天空背景 */
+}
+
+.text-hover {
+    color: #ff0000; /* 鼠标悬停时的文本颜色 */
 }
 
 
-
-
-
-
 .content-block {
+    display: flex;
+    flex-direction: column; /* 可以让内容垂直排列 */
+    align-items: center; /* 水平居中所有内容 */
     margin: 0; /* 取消外边距，保持紧密连接 */
     padding: 40px; /* 为 content-block 添加内边距 */
     position: relative;
@@ -279,6 +325,30 @@ canvas {
     background-repeat: no-repeat; /* 不重复背景图 */
     color: #ffffff; /* 文字颜色 */
 }
+
+.blackboard {
+    max-width: 100%; /* 确保图片自适应宽度 */
+    height: auto; /* 保持图片比例 */
+    border-radius: 13px;
+}
+
+
+/*每个section部分介绍的渐变效果*/
+p {
+    text-align: center;
+    transform:translateY(-50px) ;
+    opacity: 0; /* 初始透明度为0 */
+    transition: ransform 3s ease,opacity 3s ease; /* 渐变效果 */
+}
+
+p.visible {
+    opacity: 1; /* 变为不透明 */
+    transform: translateY(0);
+
+}
+
+
+
 
 .section-content {
     max-width: 1200px; /* 设置最大宽度 */
@@ -308,8 +378,11 @@ canvas {
     background-color: rgba(255, 255, 255, 0.1); /* 半透明背景 */
     padding: 20px;
     border-radius: 10px;
-    width: 40%; /* 固定宽度以保持比例 */
+    width: 50%; /* 固定宽度以保持比例 */
     line-height: 1.8; /* 行高 */
 }
 
 
+.title-text{
+    font-size: 1.8em;
+} 

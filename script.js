@@ -18,129 +18,192 @@ document.getElementById('scrollButton').onclick = function() {
         behavior: 'smooth' 
     });
 };
+/*背景*/
+
+window.addEventListener('scroll',function(){
+    const e=document.querySelector('.text-mobile2');
+    const position=e.getBoundingClientRect();
+    if(position.top<this.window.innerHeight&&position.bottom>=0)
+    {
+        e.classList.add('visible');
+    }
+    else
+    {
+        e.classList.remove('visible');
+    }
+});
+/*三问句*/
+window.addEventListener('scroll',function(){
+    const e=document.querySelector('.text-mobile1');
+    const position=e.getBoundingClientRect();
+    if(position.top<this.window.innerHeight&&position.bottom>=0)
+    {
+        e.classList.add('visible');
+    }
+    else
+    {
+        e.classList.remove('visible');
+    }
+});
+
+
+/*section介绍的渐变效果*/
+window.addEventListener('scroll', function() {
+    const paragraphs = document.querySelectorAll('p'); // 获取所有的<p>元素
+    paragraphs.forEach(function(paragraph) {
+        const position = paragraph.getBoundingClientRect();
+
+        // 当<p>出现于视口中时，添加visible类
+        if (position.top < window.innerHeight && position.bottom >= 0) {
+            paragraph.classList.add('visible');
+        } else {
+            paragraph.classList.remove('visible'); // 当完全离开视口时，移除visible类
+        }
+    });
+});
 
 
 /*云图*/
+/* 云图 */
 const canvas = document.getElementById('animationCanvas');
-    const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');
 
-    // 图片信息数组，包含图片的路径和点击后的链接
-    const imagesData = [
-        { src: 'img/yun.png', link: 'https://example.com/page1' },
-        { src: 'img/yun.png', link: 'https://example.com/page2' },
-        { src: 'img/yun.png', link: 'https://example.com/page3' }
-    ];
+// 文本信息数组，包含文本的内容和点击后的链接
+const textData = [
+    { text: '狂犬病', link: 'https://example.com/page1' ,color: '#688fe2' ,fontSize:'50'},
+    { text: '中国天眼', link: 'https://example.com/page2', color: '#b9b5ff' ,fontSize:'50'},
+    { text: '无偿献血', link: 'https://example.com/page3' , color: '#bfe2ff',fontSize:'50'},
+    { text: '新能源汽车', link: 'https://example.com/page4', color: '#9069ea',fontSize:'50' },
+    { text: '头孢配酒', link: 'https://example.com/page4', color: '#c2d3f9' ,fontSize:'50'},
+    { text: '取消中考', link: 'https://example.com/page4', color: '#c0f7f9',fontSize:'50' },
+    { text: '地震', link: 'https://example.com/page4', color: '#abe9fc' ,fontSize:'50'},
+    { text: '三星堆', link: 'https://example.com/page4', color: '#f47c7a',fontSize:'80' },
+    { text: '劳动补贴', link: 'https://example.com/page4', color: '#f49973' ,fontSize:'80'},
+    { text: '文物被盗', link: 'https://example.com/page4', color: '#b4b2f4' ,fontSize:'50'},
+    { text: '唐山打人', link: 'https://example.com/page4', color: '#9db7f9' ,fontSize:'50'},
+    { text: '高考泄题', link: 'https://example.com/page4', color: '#f27b8f' ,fontSize:'80'},
+    { text: '太空授课', link: 'https://example.com/page4', color: '#baa4f9' ,fontSize:'50'},
+    { text: '猴痘', link: 'https://example.com/page4', color: '#90f4f4' ,fontSize:'50'},
+    { text: '食品安全', link: 'https://example.com/page4', color: '#c0d2f9' ,fontSize:'50'},
+    { text: '猫一杯', link: 'https://example.com/page4', color: '#7998e5' ,fontSize:'50'},
+    { text: '胖猫', link: 'https://example.com/page4', color: '#7392ef' ,fontSize:'50'},
+    { text: '高价寻狗', link: 'https://example.com/page4', color: '#79b1e0',fontSize:'50' },
+    { text: '粉色头发', link: 'https://example.com/page4', color: '#a4adf2' ,fontSize:'50'},
 
-    // 存储所有图片对象的信息
-    const cloudImages = [];
+];
 
-    // 初始化图片对象
-    function init() {
-        imagesData.forEach((data) => {
-            const img = new Image();
-            img.src = data.src;
-            img.onload = () => {
-                const speed = Math.random() * 0.3 + 0.3; // 速度介于1到1.5之间，确保图片运动平滑
-                const imgObj = {
-                    image: img,
-                    x: Math.random() * (canvas.width / 4), // 从左下随机位置开始
-                    y: canvas.height - img.height,  // 图片从画布底部开始
-                    dx: speed, // X方向初始速度
-                    dy: -speed, // Y方向初始速度 (向上移动)
-                    width: img.width,
-                    height: img.height,
-                    link: data.link,
-                    paused: false,  // 标志图片是否暂停
-                    originalDx: speed,  // 保存原始的dx
-                    originalDy: -speed   // 保存原始的dy
-                };
-                cloudImages.push(imgObj);
-            };
-        });
+// 存储所有文本对象的信息
+const cloudTexts = [];
 
-        // 每帧更新
-        requestAnimationFrame(update);
-    }
+// 初始化文本对象
+function init() {
+    textData.forEach((data) => {
+        const fontSize = parseInt(data.fontSize, 10);
+        const textWidth = ctx.measureText(data.text).width;
+        const padding = 50;
+        const speed = Math.random() * 0.1 + 0.3; // 速度介于0.3到0.6之间
+        const textObj = {
+            text: data.text,
+            x: Math.random() * (canvas.width - fontSize-padding*2-100)+padding, // 确保文本不超出画布右边界
+            y: Math.random() * (canvas.height  - fontSize-padding*2-100)+padding,// 确保文本不超出画布底部
+            dx: speed, // X方向初始速度
+            dy: -speed, // Y方向初始速度 (向上移动)
+            fontSize: fontSize,
 
-    // 更新动画
-    function update() {
-        // 清空画布
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // 更新每个图片的位置并绘制
-        cloudImages.forEach((imgObj) => {
-            if (!imgObj.paused) {
-                imgObj.x += imgObj.dx;
-                imgObj.y += imgObj.dy;
-
-                // 碰到右上角：反向移动
-                if (imgObj.x + imgObj.width >= canvas.width || imgObj.y <= 0) {
-                    imgObj.dx = -Math.abs(imgObj.dx); // X 方向反向（确保是负数）
-                    imgObj.dy = Math.abs(imgObj.dy);  // Y 方向反向（确保是正数）
-                }
-
-                // 碰到左下角：反向移动
-                if (imgObj.x <= 0 || imgObj.y + imgObj.height >= canvas.height) {
-                    imgObj.dx = Math.abs(imgObj.dx);  // X 方向正向
-                    imgObj.dy = -Math.abs(imgObj.dy); // Y 方向负向
-                }
-            }
-
-            // 绘制图片
-            ctx.drawImage(imgObj.image, imgObj.x, imgObj.y);
-        });
-
-        // 下一帧
-        requestAnimationFrame(update);
-    }
-
-    // 处理点击事件
-    canvas.addEventListener('click', function (event) {
-        const rect = canvas.getBoundingClientRect();
-        const clickX = event.clientX - rect.left;
-        const clickY = event.clientY - rect.top;
-
-        // 检查点击是否落在某个图片上
-        cloudImages.forEach((imgObj) => {
-            if (clickX >= imgObj.x && clickX <= imgObj.x + imgObj.width &&
-                clickY >= imgObj.y && clickY <= imgObj.y + imgObj.height) {
-                // 如果点击到图片，跳转到对应的链接
-                window.open(imgObj.link, '_blank');
-            }
-        });
+            color:data.color,
+            link: data.link,
+            paused: false,  // 标志文本是否暂停
+            originalDx: speed,  // 保存原始的dx
+            originalDy: -speed   // 保存原始的dy
+        };
+        cloudTexts.push(textObj);
     });
 
-    // 处理鼠标移动事件
-    canvas.addEventListener('mousemove', function (event) {
-        const rect = canvas.getBoundingClientRect();
-        const mouseX = event.clientX - rect.left;
-        const mouseY = event.clientY - rect.top;
+    // 每帧更新
+    requestAnimationFrame(update);
+}
 
-        // 检查鼠标是否悬停在某个图片上
-        cloudImages.forEach((imgObj) => {
-            if (mouseX >= imgObj.x && mouseX <= imgObj.x + imgObj.width &&
-                mouseY >= imgObj.y && mouseY <= imgObj.y + imgObj.height) {
-                // 如果鼠标悬停，暂停该图片
-                if (!imgObj.paused) {
-                    imgObj.paused = true;
-                    imgObj.originalDx = imgObj.dx;  // 只在第一次暂停时保存速度
-                    imgObj.originalDy = imgObj.dy;
-                    imgObj.dx = 0;
-                    imgObj.dy = 0;
-                }
-            } else {
-                // 如果鼠标移开，恢复该图片的运动（如果是暂停状态）
-                if (imgObj.paused) {
-                    imgObj.paused = false;
-                    imgObj.dx = imgObj.originalDx;
-                    imgObj.dy = imgObj.originalDy;
-                }
+// 更新动画
+function update() {
+    // 清空画布
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // 更新每个文本的位置并绘制
+    cloudTexts.forEach((textObj) => {
+        if (!textObj.paused) {
+            textObj.x += textObj.dx;
+            textObj.y += textObj.dy;
+
+            // 碰到右上角：反向移动
+            if (textObj.x + ctx.measureText(textObj.text).width >= canvas.width ||  textObj.y <= textObj.fontSize) {
+                textObj.dx = -Math.abs(textObj.dx); // X 方向反向（确保是负数）
+                textObj.dy = Math.abs(textObj.dy);  // Y 方向反向（确保是正数）
             }
-        });
+
+            // 碰到左下角：反向移动
+            if (textObj.x <= 0 || textObj.y + textObj.fontSize >= canvas.height) {
+                textObj.dx = Math.abs(textObj.dx);  // X 方向正向
+                textObj.dy = -Math.abs(textObj.dy); // Y 方向负向
+            }
+        }
+
+        // 绘制文本
+        ctx.font = `${textObj.fontSize}px SimHei`; // 设置字体
+        ctx.fillStyle =textObj.color; // 设置文本颜色
+        ctx.fillText(textObj.text, textObj.x, textObj.y);
     });
 
-    // 启动动画
-    init();
+    // 下一帧
+    requestAnimationFrame(update);
+}
+
+// 处理点击事件
+canvas.addEventListener('click', function (event) {
+    const rect = canvas.getBoundingClientRect();
+    const clickX = event.clientX - rect.left;
+    const clickY = event.clientY - rect.top;
+
+    // 检查点击是否落在某个文本上
+    cloudTexts.forEach((textObj) => {
+        if (clickX >= textObj.x && clickX <= textObj.x + ctx.measureText(textObj.text).width &&
+            clickY >= textObj.y - textObj.fontSize && clickY <= textObj.y) {
+            // 如果点击到文本，跳转到对应的链接
+            window.open(textObj.link, '_blank');
+        }
+    });
+});
+
+// 处理鼠标移动事件
+canvas.addEventListener('mousemove', function (event) {
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
+
+    // 检查鼠标是否悬停在某个文本上
+    cloudTexts.forEach((textObj) => {
+        if (mouseX >= textObj.x && mouseX <= textObj.x + ctx.measureText(textObj.text).width &&
+            mouseY >= textObj.y - textObj.fontSize && mouseY <= textObj.y) {
+            // 如果鼠标悬停，暂停该文本
+            if (!textObj.paused) {
+                textObj.paused = true;
+                textObj.originalDx = textObj.dx;  // 只在第一次暂停时保存速度
+                textObj.originalDy = textObj.dy;
+                textObj.dx = 0;
+                textObj.dy = 0;
+            }
+        } else {
+            // 如果鼠标移开，恢复该文本的运动（如果是暂停状态）
+            if (textObj.paused) {
+                textObj.paused = false;
+                textObj.dx = textObj.originalDx;
+                textObj.dy = textObj.originalDy;
+            }
+        }
+    });
+});
+
+// 启动动画
+init();
 
 
 /*图片滚动播放器*/
