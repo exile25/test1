@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>测试结果</title>
+</head>
+<body>
+    <div class="container">
+        <h1>测试结果</h1>
+        <div id="animation"></div> <!-- 动画显示区域 -->
+        <div id="score"></div>
+        <div id="feedback"></div>
+        
+        <button onclick="window.location.href='index.html'">返回测试</button>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const score = parseInt(urlParams.get('score'), 10);
+        const incorrectAnswers = JSON.parse(urlParams.get('incorrectAnswers'));
+
+        document.getElementById('score').innerHTML = `<h2>你的得分: ${score} / 100</h2>`;
+
+        // 根据得分显示对应的动画
+        let animationText = '';
+        let animationClass = '';
+        if (score >= 0 && score <= 60) {
+            animationText = '加油!';
+            animationClass = 'bounce-animation';
+        } else if (score > 60 && score <= 80) {
+            animationText = '继续努力!';
+            animationClass = 'pulse-animation';
+        } else if (score > 80 && score <= 99) {
+            animationText = '优秀!';
+            animationClass = 'celebrate-animation';
+        } else if (score === 100) {
+            animationText = '安全小卫士!';
+            animationClass = 'guardian-animation';
+        }
+
+        // 显示动画
+        if (animationText) {
+            document.getElementById('animation').innerHTML = `<div class="${animationClass}">${animationText}</div>`;
+        }
+
+        if (incorrectAnswers.length > 0) {
+            let feedback = "<h3>错误题目及解析:</h3><ul>";
+            incorrectAnswers.forEach(item => {
+                feedback += `
+                    <li class="feedback-item">
+                        <strong>${item.question}</strong><br>
+                        你的答案: ${item.userAnswer}<br>
+                        正确答案: ${item.correctAnswer}<br>
+                        解析: ${item.explanation}
+                    </li>
+                `;
+            });
+            feedback += "</ul>";
+            document.getElementById('feedback').innerHTML = feedback;
+        }
+    </script>
+</body>
+</html>

@@ -3,190 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>青年网络安全教育校园日</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .canvas-text {
-            position: absolute;
-            color: #ffffff; /* 原色 */
-            font-size: 20px; /* 文本大小 */
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .text-hover {
-            color: #cbc8c8; /* 悬停时的颜色 */
-        }
-    </style>
+    <link rel="stylesheet" href="in_styles.css">
+    <title>小测试</title>
 </head>
 <body>
-    <nav id="navbar" style="position: fixed; top: 0; left: 0; width: 100%;  padding: 20px;z-index: 1000; transition: background-color 0.5s, opacity 0.3s;">
-        <ul style="list-style-type: none; margin: 0; padding: 0; display: flex; justify-content: left;">
-            <li style="margin-right: 5px;">
-                <img src="img\title.png" style="height: 50px;">
-            </li>
-            <li style="margin-right:200px">
-                <a href="#index" style="color: #fff; text-decoration: none; font-size: 36px; font-weight: bold; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">青年网络安全教育校园日</a>
-            </li>
-           
-            <li style="margin-right: 40px;margin-top: 7px;">
-                <a href="#section1" style="color: #fff; text-decoration: none; font-size: 25px; font-weight: bold;">网络安全法律法规</a>
-            </li>
-            <li style="margin-right: 40px;margin-top: 7px;">
-                <a href="#section2" style="color: #fff; text-decoration: none; font-size: 25px; font-weight: bold;">常见网络威胁</a>
-            </li>
-            <li style="margin-right: 40px;margin-top: 7px;">
-                <a href="#section3" style="color: #fff; text-decoration: none; font-size: 25px; font-weight: bold;">网络谣言</a>
-            </li>
-            <li style="margin-top: 7px;">
-                <a href="#section4" style="color: #fff; text-decoration: none; font-size: 25px; font-weight: bold;">校园风采</a>
-            </li>
-        </ul>
-    </nav>
-    
-<div class="container" id="index">
-    <div class="overlay"></div>    
-
-
-    <header class="header">
-        <div class="text-content">
-            <h1 class="header-title">青年<span style="color: rgb(106, 106, 242);">网络安全</span>
-            <span class="year">2024</span></h1>
-            <h1>教育校园日</h1><br><br>
-            <h3>Cyber Security Education School Day</h3> 
-            <h2 style="color: rgb(106, 106, 242)">for Youth</h2>
-            <!-- <div class="gradient-overlay"></div> -->
-
-        </div>
-  
-        <div class="image-carousel">
-            <div class="carousel-images">
-                <img src="img/page1图片.png" alt="教育安全日1" class="carousel-image">
-                
+    <div class="container">
+        <h1>小测试</h1>
+        <div id="timer">剩余时间: <span id="time">600</span>秒</div>
+        <form id="quizForm">
+            <h2>一、判断题</h2>
+            <div class="question">
+                <p>1. 防火墙可以完全防止网络攻击。</p>
+                <label><input type="radio" name="q1" value="true"> 对</label>
+                <label><input type="radio" name="q1" value="false"> 错</label>
             </div>
-        </div>
-    </header>
-    
-    <header class="header-mobile">
-        <div class="text-mobile2">
-            <!-- <h1>时代背景</h1> -->
-            <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 以习近平同志为核心的党中央高度重视网络生态治理工作，多次强调网络空间是广大网民共同的精神家园，要依法加强网络空间的治理，为广大网民特别是青少年营造一个风清气正的网络环境。当下，网络技术发展日新月异，影响日益深远，社会对于使用网络平台的需求越来越高，这不断呼吁我们要为广大网民特别是青少年营造一个风清气正的网络空间。</h2>
-            <br><br><br><br><br><br><br><br>
-        </div>
-        <div class="text-mobile1">
-            <h1>你知道什么是网络安全吗?<br><br>
-                你具备网络安全素养吗?<br><br>
-                你想提升自己的网络安全素养吗?<br><br>
-                ......<br>
-                请点击</h1>
-                
-            <div class="button-mobile">
-                <a href="test/index.html" target="_blank"><img id="scrollButton" src="img/点击这里.png"></a>
+            <div class="question">
+                <p>2. 网络谣言往往比真实信息更容易在网络上传播。</p>
+                <label><input type="radio" name="q2" value="true"> 对</label>
+                <label><input type="radio" name="q2" value="false"> 错</label>
             </div>
-            <br><br><br>
-        </div>
-    </header>
-</div>
+            <div class="question">
+                <p>3. 青少年在网络上分享个人信息时，只需要注意不泄露敏感信息如密码和银行账号即可。</p>
+                <label><input type="radio" name="q3" value="true"> 对</label>
+                <label><input type="radio" name="q3" value="false"> 错</label>
+            </div>
+            <div class="question">
+                <p>4. 青少年在网络空间中，只要使用匿名身份，就可以完全规避法律责任。</p>
+                <label><input type="radio" name="q4" value="true"> 对</label>
+                <label><input type="radio" name="q4" value="false"> 错</label>
+            </div>
+            <div class="question">
+                <p>5. 青少年在面对网络欺凌时，应该选择默默忍受。</p>
+                <label><input type="radio" name="q5" value="true"> 对</label>
+                <label><input type="radio" name="q5" value="false"> 错</label>
+            </div>
+            <div class="question">
+                <p>6. 在社交媒体上公开自己的生日和家庭住址是安全的。</p>
+                <label><input type="radio" name="q6" value="true"> 对</label>
+                <label><input type="radio" name="q6" value="false"> 错</label>
+            </div>
 
-<section id="section1" class="content-block" style="background-image: url('img/背景2.jpg');">
-    <div class="section-content">
-        <br><br><br><br><br><br><br>
-        <h4 class="section-title custom-title">
-            <span class="line"></span>
-            <span class="title-text">< S1 网络安全相关法律法规 ></span>
-            <span class="line"></span>
-        </h4>
-        <div class="additional-text" style="display: flex;align-items: left;">
-            <p style="text-align: left;font-size: 1.5em; margin-left: 150px;margin-right:100px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网络安全法的目的是为了全面保障网络安全，维护网络空间主权和国家安全、社会公共利益，同时促进网络和信息化健康有序发展。</p>
-        </div>
+            <h2>二、单选题</h2>
+            <div class="question">
+                <p>1. 以下哪项不是网络谣言传播的主要渠道？</p>
+                <label><input type="radio" name="q7" value="A"> A. 社交媒体</label>
+                <label><input type="radio" name="q7" value="B"> B. 电子邮件</label>
+                <label><input type="radio" name="q7" value="C"> C. 官方新闻网站</label>
+                <label><input type="radio" name="q7" value="D"> D. 论坛和博客</label>
+            </div>
+            <div class="question">
+                <p>2. 青少年在网络交流中，遇到与自己观点截然不同的言论时，最恰当的做法是：</p>
+                <label><input type="radio" name="q8" value="A"> A. 立即反驳</label>
+                <label><input type="radio" name="q8" value="B"> B. 忽视该言论</label>
+                <label><input type="radio" name="q8" value="C"> C. 保持尊重</label>
+                <label><input type="radio" name="q8" value="D"> D. 举报该言论</label>
+            </div>
+            <div class="question">
+                <p>3. 面对未经证实的消息，最负责任的做法是：</p>
+                <label><input type="radio" name="q9" value="A"> A. 立即转发</label>
+                <label><input type="radio" name="q9" value="B"> B. 不予理睬</label>
+                <label><input type="radio" name="q9" value="C"> C. 先验证真实性</label>
+                <label><input type="radio" name="q9" value="D"> D. 直接举报</label>
+            </div>
+            <div class="question">
+                <p>4. 以下哪项措施不能有效提高在线安全性？</p>
+                <label><input type="radio" name="q10" value="A"> A. 定期更新软件</label>
+                <label><input type="radio" name="q10" value="B"> B. 使用同一密码</label>
+                <label><input type="radio" name="q10" value="C"> C. 启用双重认证</label>
+                <label><input type="radio" name="q10" value="D"> D. 更新防病毒软件</label>
+            </div>
+            <div class="question">
+                <p>5. 当收到要求提供个人信息的邮件时，应该怎么做？</p>
+                <label><input type="radio" name="q11" value="A"> A. 立即提供信息</label>
+                <label><input type="radio" name="q11" value="B"> B. 回复询问身份</label>
+                <label><input type="radio" name="q11" value="C"> C. 删除邮件</label>
+                <label><input type="radio" name="q11" value="D"> D. 报告给机构</label>
+            </div>
+            <div class="question">
+                <p>6. 在公共场所使用免费 Wi-Fi 时，哪种做法最安全？</p>
+                <label><input type="radio" name="q12" value="A"> A. 直接连接购物</label>
+                <label><input type="radio" name="q12" value="B"> B. 只浏览网页</label>
+                <label><input type="radio" name="q12" value="C"> C. 不连接无密码</label>
+                <label><input type="radio" name="q12" value="D"> D. 使用 VPN</label>
+            </div>
+            <div class="question">
+                <p>7. 当发现电脑被黑客入侵，正确做法是：</p>
+                <label><input type="radio" name="q13" value="A"> A. 断开网络</label>
+                <label><input type="radio" name="q13" value="B"> B. 追踪黑客</label>
+                <label><input type="radio" name="q13" value="C"> C. 继续使用电脑</label>
+                <label><input type="radio" name="q13" value="D"> D. 格式化硬盘</label>
+            </div>
+            <div class="question">
+                <p>8. 在社交媒体上，看到未证实的灾害消息，应：</p>
+                <label><input type="radio" name="q14" value="A"> A. 立即转发</label>
+                <label><input type="radio" name="q14" value="B"> B. 相信消息</label>
+                <label><input type="radio" name="q14" value="C"> C. 等待官方消息</label>
+                <label><input type="radio" name="q14" value="D"> D. 向发布者询问</label>
+            </div>
+            <div class="question">
+                <p>9. 收到陌生邮件的附件，应：</p>
+                <label><input type="radio" name="q15" value="A"> A. 直接打开</label>
+                <label><input type="radio" name="q15" value="B"> B. 扫描后再打开</label>
+                <label><input type="radio" name="q15" value="C"> C. 直接删除</label>
+                <label><input type="radio" name="q15" value="D"> D. 转发给他人</label>
+            </div>
+            <div class="question">
+                <p>10. 在公共 Wi-Fi 上购物后收到陌生短信，应该：</p>
+                <label><input type="radio" name="q16" value="A"> A. 点击链接</label>
+                <label><input type="radio" name="q16" value="B"> B. 拨打客服</label> 
+                <label><input type="radio" name="q16" value="C"> C. 检查订单</label> 
+                <label><input type="radio" name="q16" value="D"> D. 连接更好的 Wi-Fi</label> 
+            </div>
 
-        <div class="block-items">
-            <div class="block-item">
-                <ul class="lawTitleBlock">
-                    <li class="liTitle">相关法案</li><br>
-                    <li><a class='lawTitle' alt='《中华人民共和国网络安全法》' href="laws/law1.html" target="_blank">01.《中华人民共和国网络安全法》</a></li><br>
-                    <li><a class='lawTitle' alt='《未成年人网络保护条例》' href="laws/law2.html" target="_blank">02.《未成年人网络保护条例》</a></li><br>
-                    <li><a class='lawTitle' alt='《中华人民共和国数据安全法》' href="laws/law3.html" target="_blank">03.《中华人民共和国数据安全法》</a></li><br>
-                    <li><a class='lawTitle' alt='《中华人民共和国未成年人保护法(2024修正)》' href="laws/law4.html" target="_blank">04.《中华人民共和国未成年人保护法(2024修正)》</a></li>
-                </ul>
-                <br>
+            <h2>三、多选题</h2>
+            <div class="question">
+                <p>1. 以下哪些措施可以提高个人计算机的安全性？</p>
+                <label><input type="checkbox" name="q17" value="A"> A. 定期更新操作系统</label>
+                <label><input type="checkbox" name="q17" value="B"> B. 使用强密码</label>
+                <label><input type="checkbox" name="q17" value="C"> C. 禁用防火墙</label>
+                <label><input type="checkbox" name="q17" value="D"> D. 不打开未知邮件附件</label>
             </div>
-            <div class="laws">
-                <img src="img/法律法规.jpg">
+            <div class="question">
+                <p>2. 构建坚不可摧的电脑安全防护体系，应掌握哪些策略？</p>
+                <label><input type="checkbox" name="q18" value="A"> A. 多层次安全防护</label>
+                <label><input type="checkbox" name="q18" value="B"> B. 安全审计与渗透测试</label>
+                <label><input type="checkbox" name="q18" value="C"> C. 使用 VPN</label>
+                <label><input type="checkbox" name="q18" value="D"> D. 身份验证机制</label>
             </div>
-        </div>
+            <div class="question">
+                <p>3. 以下哪些行为有助于保护个人隐私？</p>
+                <label><input type="checkbox" name="q19" value="A"> A. 分享位置信息</label>
+                <label><input type="checkbox" name="q19" value="B"> B. 阅读隐私政策</label>
+                <label><input type="checkbox" name="q19" value="C"> C. 限制广告追踪</label>
+                <label><input type="checkbox" name="q19" value="D"> D. 定期检查账户记录</label>
+            </div>
+            <div class="question">
+                <p>4. 如果怀疑自己成为网络钓鱼攻击的目标，应该采取哪些措施？</p>
+                <label><input type="checkbox" name="q20" value="A"> A. 立即更改密码</label>
+                <label><input type="checkbox" name="q20" value="B"> B. 通知银行</label>
+                <label><input type="checkbox" name="q20" value="C"> C. 公布遭遇</label>
+                <label><input type="checkbox" name="q20" value="D"> D. 联系服务平台</label>
+            </div>
+            <button type="button" id="submit">交卷</button>
+        </form>
     </div>
-</section>
-
-<section id="section2" class="content-block" style="background-image: url('img/背景3.jpg');">
-    <div class="section-content">
-        <br><br><br><br><br><br>
-        <h4 class="section-title custom-title">
-            <span class="line"></span>
-            <span class="title-text">< S2 常见的网络威胁 ></span>
-            <span class="line"></span>
-        </h4>
-        <div class="additional-text" style="display: flex;align-items: left; margin-bottom: 20px;">
-            <p style="text-align: left;font-size: 1.5em;margin-left: 150px;margin-right:100px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;防治网络威胁对于保护数据安全、确保网络稳定、抵御攻击、减少损失、维护隐私、国家安全及社会稳定至关重要。</p>
-        </div>
-        <div class="images">
-            <br><br><br><br><br><br><br>
-            <div class="scroll-container">
-                <div class="scroll-wrapper">
-                    <div class="scroll-images">
-                        <a class="threatLink" href="threat/threat1.html" target="_blank"><img src="img/laws1.gif" alt="Image 1"></a>
-                        <a href="threat/threat2.html" target="_blank"><img src="img/laws3.gif" alt="Image 2"></a>
-                        <a href="threat/threat3.html" target="_blank"><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2t0cGp2c2xtbnlkNjk4NDQycDR2aW1sZnlyZDYwdWFjaGVjanNpaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/LNvv02BnKB6bxa7HMI/giphy.webp" alt="Image 3"></a>
-                        <a href="threat/threat4.html" target="_blank"><img src="img/laws4.gif" alt="Image 4"></a>
-                        <a class="threatLink" href="threat/threat1.html" target="_blank"><img src="img/laws1.gif" alt="Image 1"></a>
-                        <a href="threat/threat2.html" target="_blank"><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2t0cGp2c2xtbnlkNjk4NDQycDR2aW1sZnlyZDYwdWFjaGVjanNpaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/LNvv02BnKB6bxa7HMI/giphy.webp" alt="Image 2"></a>
-                        <a href="threat/threat3.html" target="_blank"><img src="img/laws3.gif" alt="Image 3"></a>
-                        <a href="threat/threat4.html" target="_blank"><img src="img/laws4.gif" alt="Image 4"></a>
-                    </div> 
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="section3" class="content-block" style="background-image: url('img/背景4.jpg');">
-    <div class="section-content">
-        <br><br><br><br><br><br>
-        <h4 class="section-title custom-title">
-            <span class="line"></span>
-            <span class="title-text">< S3 网络谣言 ></span>
-            <span class="line"></span>
-        </h4>
-        <div class="additional-text" style="display: flex;align-items: left; margin-bottom: 20px;">
-            <p style="text-align: left;font-size: 1.5em;margin-left: 150px;margin-right:100px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;抵制网络谣言对于维护社会稳定、保护个人权益、促进真实信息传播以及增强网络信任至关重要，是构建健康、可信网络环境不可或缺的一环。</p>
-        </div>
-        <br>
-        <canvas id="animationCanvas" width="1200" height="600" padding="40"></canvas>
-        <br><br>
-    </div>
-</section>
-
-<section id="section4" class="content-block" style="background-image: url('img/背景3.jpg');">
-    <div class="section-content">
-        <br><br><br><br><br><br><br>
-        <h4 class="section-title custom-title">
-            <span class="line"></span>
-            <span class="title-text">< S4 校园风采 ></span>
-            <span class="line"></span>
-        </h4>
-        <div class="additional-text" style="display: flex;align-items: left; margin-bottom: 20px;">
-            <p style="text-align: left;font-size: 1.5em;margin-left: 150px;margin-right:100px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开展网络安全主题校园活动对于提升学生网络安全意识、培养良好网络行为习惯、增强网络安全技能以及促进校园信息化建设等方面都具有重要意义。</p>
-        </div>
-        <br><br><br><br><br><br><br>
-        <div class="block-items">
-            <div class="block-item title-text">图片（多类型图片展示）</div>
-            <div>        
-                <img class='blackboard' src="img/黑板.jpg" alt="照片">
-            </div>
-        </div>
-    </div>
-</section>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+    
