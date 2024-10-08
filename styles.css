@@ -10,20 +10,69 @@ body {
     color: #fff;
     line-height: 1.6;
     overflow-x: hidden;
-
+    position: relative;
     background-color: #ffffff;
     }
 
-
+    
+html {
+    scroll-behavior: smooth; /* 添加平滑滚动 */
+}
 
 /* 标题和背景 */
 
-.container{
+
+
+/* 修改 .container 类 */
+.container {
     background-image: url("img/背景1.jpg");
     background-size: cover; /* 背景图覆盖整个元素 */
     background-repeat: no-repeat; /* 不重复背景图 */
     background-position: top; /* 居中背景图 */
+    position: relative; /*为叠加层定位提供参考 */
+    z-index: 1; /* 确保内容在叠加层之上 */
 }
+/* 叠加层样式 */
+.overlay {
+    position: fixed;
+    left: 20px;
+    top: 320px;
+    width: 40vw; /* 窗口宽度的25% */
+    height: 40vh; /* 窗口高度的25% */
+    bottom: 300px;
+    background:
+        url("img/title.png") no-repeat center center; /* 替换为您的叠加图片路径 */
+    background-size: contain, contain; /* 控制渐变和图片的大小 */
+    background-repeat: no-repeat, no-repeat; /* 不重复背景图 */
+    background-position: center, center; /* 居中对齐 */
+    pointer-events: none; /* 允许点击穿透 */
+    z-index: -2; /* 确保叠加层在内容下方，但在导航栏上方 */
+
+    transition: opacity 0.5s ease; /* 添加过渡效果 */
+    opacity: 0.3;
+}
+
+/* 主内容样式 */
+.content {
+    position: relative;
+    z-index: 1; /* 确保内容在叠加层之上 */
+    padding: 100px 20px 20px 20px; /* 给导航栏留出空间 */
+    color: #000; /* 设置内容颜色 */
+}
+
+.content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+
+
 .header {
     display: flex; /* 让 header 使用 flex 布局 */
     justify-content: space-between; /* 确保文字内容在左侧，图片在右侧 */
@@ -36,11 +85,13 @@ body {
 .text-content {
     display: flex;
     flex-direction: column; /* 文字内容垂直排列 */
-    padding-right:20px; /* 文字内容右侧留白 */
+    padding-right: 20px; /* 文字内容右侧留白 */
     max-width: 60%;
     text-align: left; /* 文字内容左对齐 */
     padding-left: 50px;
 }
+
+
 .header-image {
     max-width: 100%; /* 最大宽度为100% */
     height: auto; /* 保持图片比例 */
@@ -50,25 +101,29 @@ body {
 
 .image-carousel {
     position: relative;
-    overflow: hidden; /* 隐藏超出部分 */
-    width: 100%; /* 根据需要调整宽度 */
-    max-width: 600px; /* 设置最大宽度 */
+    width: 700px; /* 根据需要调整宽度 */
+    max-width: 700px; /* 设置最大宽度 */
     height: 80vh; /* 设置适当高度 */
     margin-bottom: 20px; /* 增加下边距 */
-    margin-top: 200px;
+    margin-top: 100px;
     margin-right:100px;
+    margin-left: 100px;
     z-index: 10; /* 确保轮播图在上方 */
 }
 
 .carousel-images {
     display: flex;
     transition: transform 0.5s ease; /* 添加平滑过渡效果 */
+
 }
 
 .carousel-image {
     min-width: 100%; /* 每张图片占满轮播区域 */
     height: 100%; /* 保持图片比例 */
     object-fit: cover; /* 图片缩放 */
+    border-radius: 30px;
+    
+
 }
 
 
@@ -94,16 +149,16 @@ body {
     opacity: 1;
 }
 
-.text-mobile2 h1{
+/* .text-mobile2 h1{
     font-size: 3em;
     text-align: center;
     margin-top: 100px;
     margin-bottom: 50px;
-}
+} */
 
 .text-mobile1{
     text-align: center;
-  
+    color: #ffffffec;
     font-size: 2em;
     margin-bottom: 0px;
     transform: translateY(-100px);
@@ -146,11 +201,11 @@ body {
 .year {
     position: absolute; /* 绝对定位 */
     top: -0.00001em; /* 根据需要微调，调整高度 */
-    left: 100%; /* 紧贴右侧 */
+    left: 87%; /* 紧贴右侧 */
     font-size: 0.3em; /* 设置较小的字体大小 */
     color: #ffffff; /* 设置字体颜色 */
-    margin-left:-70px; /* 可以加入一些左边距 */
-   
+    margin-left:-35px; /* 可以加入一些左边距 */
+    text-shadow: 2px 2px 4px rgb(37, 45, 49);
 }
 
 .header h2 {
@@ -189,6 +244,7 @@ body {
     text-align: center;
     margin: 80px 0;
     padding: 0px;
+
 }
 
 .custom-title {
@@ -244,10 +300,84 @@ body {
 
 /* 法律法规图片 */
 .laws{
-    height: 100%;
-    width:auto;
-    border-radius: 10px;
+    height: 375px;
+    width:650px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
 }
+.laws::before{
+    content:'旨在加强网络安全保护，维护国家安全及公民个人信息权益。';
+    position: absolute;
+    top: -375px;
+    left: 24px;
+    width: 600px;
+    height: 375px;
+    /* 行高让文字垂直居中 */
+    line-height: 375px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #ffffff;
+    /* 背景颜色 a代表背景颜色不透明度 */
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.laws:hover::before{
+    top:0;
+    animation: dropdown 2s;
+}
+/* 下面定义下降动画 */
+@keyframes dropdown {
+    0% {
+        top: -375px;
+    }
+
+    5% {
+        top: 0;
+    }
+
+    10% {
+        top: -30px;
+    }
+
+    20% {
+        top: 0;
+    }
+
+    30% {
+        top: -20px;
+    }
+
+    40% {
+        top: 0;
+    }
+
+    50% {
+        top: -15px;
+    }
+
+    60% {
+        top: 0;
+    }
+
+    70% {
+        top: -10px;
+    }
+
+    80% {
+        top: 0;
+    }
+
+    90% {
+        top: -5px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
 
 /*网络威胁图片滚动器*/
 .scroll-container {
@@ -256,11 +386,11 @@ body {
     overflow: hidden;
     width: 1200px; /* 容器的宽度 */
     height: 350px; /* 容器的高度 */
-    border: 2px solid #cccccc1b;
+    border: 2px solid #cccccc00;
     position: relative;
     margin: 50px auto;
     
-    background-color: rgba(0, 255, 255, 0.333);
+    background-color: rgba(0, 255, 255, 0);
 }
 
 .scroll-wrapper {
@@ -303,11 +433,11 @@ canvas {
     border: 2px solid rgba(0, 0, 0, 0);
     display: block;
     margin: 20px auto;
-    background: #87cfeb00; /* 添加一个天空背景 */
+    background: #ffffff00; /* 添加一个天空背景 */
 }
 
 .text-hover {
-    color: #ff0000; /* 鼠标悬停时的文本颜色 */
+    color: #ff000000; /* 鼠标悬停时的文本颜色 */
 }
 
 
@@ -351,9 +481,11 @@ p.visible {
 
 
 .section-content {
-    max-width: 1200px; /* 设置最大宽度 */
+    max-width: 1600px; /* 设置最大宽度 */
     margin: 0 auto; /* 居中对齐 */
     text-align: center; /* 文字居中 */
+    z-index: 200; /* 确保内容在叠加层之上 */
+
 }
 
 .section-title {
@@ -378,11 +510,13 @@ p.visible {
     background-color: rgba(255, 255, 255, 0.1); /* 半透明背景 */
     padding: 20px;
     border-radius: 10px;
-    width: 50%; /* 固定宽度以保持比例 */
+    width: 40%; /* 固定宽度以保持比例 */
     line-height: 1.8; /* 行高 */
 }
 
 
 .title-text{
-    font-size: 1.8em;
+    font-size: 2.8em;
+    text-shadow:2px 2px 4px #b7e3ed45;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 } 

@@ -1,50 +1,106 @@
-let currentIndex = 0;
-const images = document.querySelectorAll('.carousel-image');
-const totalImages = images.length;
+// let currentIndex = 0;
+// const images = document.querySelectorAll('.carousel-image');
+// const totalImages = images.length;
 
-function showNextImage() {
-    currentIndex = (currentIndex + 1) % totalImages; // 计算下一个索引
-    const offset = -currentIndex * 100; // 每张图片的宽度为100%
-    document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`; // 移动轮播图
-}
+// function showNextImage() {
+//     currentIndex = (currentIndex + 1) % totalImages; // 计算下一个索引
+//     const offset = -currentIndex * 100; // 每张图片的宽度为100%
+//     document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`; // 移动轮播图
+// }
 
-// 每3秒切换到下一张图片
-setInterval(showNextImage, 3000);
+// script.js
+
+// script.js
+
+document.addEventListener('DOMContentLoaded', function () {
+    // 选择叠加层和目标 section
+    const overlay = document.querySelector('.overlay');
+    const targetSection = document.querySelector('#section1');
+
+    // 检查元素是否存在
+    if (!overlay) {
+        console.error('无法找到 .overlay 元素');
+        return;
+    }
+
+    if (!targetSection) {
+        console.error('无法找到 #section1 元素');
+        return;
+    }
+
+    // 选项配置
+    const options = {
+        root: null, // 视口
+        rootMargin: '0px',
+        threshold: 0.5 // 当 section1 一半出现在视口中时触发
+    };
+
+    // 回调函数
+    const callback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // 当 section1 在视口中时，隐藏叠加层
+                overlay.classList.add('hidden');
+                console.log('section1 进入视口，隐藏叠加层');
+            } else {
+                // 当 section1 不在视口中时，显示叠加层
+                overlay.classList.remove('hidden');
+                console.log('section1 离开视口，显示叠加层');
+            }
+        });
+    };
+
+    // 创建观察者
+    const observer = new IntersectionObserver(callback, options);
+
+    // 观察目标 section
+    observer.observe(targetSection);
+});
 
 
 
-document.getElementById('scrollButton').onclick = function() {
-    document.getElementById('section1').scrollIntoView({ 
-        behavior: 'smooth' 
-    });
+
+
+/*滚动*/
+// 滚动时改变导航栏背景
+window.onscroll = function() {
+    var navbar = document.getElementById("navbar");
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        navbar.style.backgroundColor = "rgba(31, 100, 202)"; // 滚动后背景颜色
+        navbar.style.opacity = "0.9"; // 滚动后透明度
+        navbar.style.boxShadow='0 2px 5px rgb(255, 255, 255)' // 滚动后boxshadow颜色
+
+    } else {
+        navbar.style.backgroundColor = "rgba(82, 149, 249, 0)"; // 初始背景颜色
+        navbar.style.opacity = "1"; // 初始透明度
+        navbar.style.boxShadow = 'none'; // 初始boxshadow颜色
+
+    }
 };
-/*背景*/
 
-window.addEventListener('scroll',function(){
-    const e=document.querySelector('.text-mobile2');
-    const position=e.getBoundingClientRect();
-    if(position.top<this.window.innerHeight&&position.bottom>=0)
-    {
+
+// 为 .text-mobile2 添加可见性
+window.addEventListener('scroll', function(){
+    const e = document.querySelector('.text-mobile2');
+    const position = e.getBoundingClientRect();
+    if(position.top < window.innerHeight && position.bottom >= 0) {
         e.classList.add('visible');
-    }
-    else
-    {
+    } else {
         e.classList.remove('visible');
     }
 });
-/*三问句*/
-window.addEventListener('scroll',function(){
-    const e=document.querySelector('.text-mobile1');
-    const position=e.getBoundingClientRect();
-    if(position.top<this.window.innerHeight&&position.bottom>=0)
-    {
+
+// 为 .text-mobile1 添加可见性
+window.addEventListener('scroll', function(){
+    const e = document.querySelector('.text-mobile1');
+    const position = e.getBoundingClientRect();
+    if(position.top < window.innerHeight && position.bottom >= 0) {
         e.classList.add('visible');
-    }
-    else
-    {
+    } else {
         e.classList.remove('visible');
     }
 });
+
 
 
 /*section介绍的渐变效果*/
@@ -63,14 +119,14 @@ window.addEventListener('scroll', function() {
 });
 
 
-/*云图*/
+
 /* 云图 */
 const canvas = document.getElementById('animationCanvas');
 const ctx = canvas.getContext('2d');
 
 // 文本信息数组，包含文本的内容和点击后的链接
 const textData = [
-    { text: '狂犬病', link: 'https://example.com/page1' ,color: '#688fe2' ,fontSize:'50'},
+    { text: '狂犬病', link: 'cloudText/狂犬病.html' ,color: '#688fe2' ,fontSize:'50'},
     { text: '中国天眼', link: 'https://example.com/page2', color: '#b9b5ff' ,fontSize:'50'},
     { text: '无偿献血', link: 'https://example.com/page3' , color: '#bfe2ff',fontSize:'50'},
     { text: '新能源汽车', link: 'https://example.com/page4', color: '#9069ea',fontSize:'50' },
