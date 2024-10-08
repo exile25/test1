@@ -1,0 +1,522 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    
+    background: linear-gradient(to bottom, #6badf300, #23166e5b); /* 使用蓝色渐变 */
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    background-color: #ffffff;
+    }
+
+    
+html {
+    scroll-behavior: smooth; /* 添加平滑滚动 */
+}
+
+/* 标题和背景 */
+
+
+
+/* 修改 .container 类 */
+.container {
+    background-image: url("img/背景1.jpg");
+    background-size: cover; /* 背景图覆盖整个元素 */
+    background-repeat: no-repeat; /* 不重复背景图 */
+    background-position: top; /* 居中背景图 */
+    position: relative; /*为叠加层定位提供参考 */
+    z-index: 1; /* 确保内容在叠加层之上 */
+}
+/* 叠加层样式 */
+.overlay {
+    position: fixed;
+    left: 20px;
+    top: 320px;
+    width: 40vw; /* 窗口宽度的25% */
+    height: 40vh; /* 窗口高度的25% */
+    bottom: 300px;
+    background:
+        url("img/title.png") no-repeat center center; /* 替换为您的叠加图片路径 */
+    background-size: contain, contain; /* 控制渐变和图片的大小 */
+    background-repeat: no-repeat, no-repeat; /* 不重复背景图 */
+    background-position: center, center; /* 居中对齐 */
+    pointer-events: none; /* 允许点击穿透 */
+    z-index: -2; /* 确保叠加层在内容下方，但在导航栏上方 */
+
+    transition: opacity 0.5s ease; /* 添加过渡效果 */
+    opacity: 0.3;
+}
+
+/* 主内容样式 */
+.content {
+    position: relative;
+    z-index: 1; /* 确保内容在叠加层之上 */
+    padding: 100px 20px 20px 20px; /* 给导航栏留出空间 */
+    color: #000; /* 设置内容颜色 */
+}
+
+.content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+
+
+.header {
+    display: flex; /* 让 header 使用 flex 布局 */
+    justify-content: space-between; /* 确保文字内容在左侧，图片在右侧 */
+    align-items: center; /* 垂直居中对齐 */
+    padding: 0 20px; /* 给 header 添加左右内边距 */
+    height: 100vh;
+    
+   }
+
+.text-content {
+    display: flex;
+    flex-direction: column; /* 文字内容垂直排列 */
+    padding-right: 20px; /* 文字内容右侧留白 */
+    max-width: 60%;
+    text-align: left; /* 文字内容左对齐 */
+    padding-left: 50px;
+}
+
+
+.header-image {
+    max-width: 100%; /* 最大宽度为100% */
+    height: auto; /* 保持图片比例 */
+    margin-left: 5px; /* 图片与文字之间的间距，根据需要调整 */
+    
+}
+
+.image-carousel {
+    position: relative;
+    width: 700px; /* 根据需要调整宽度 */
+    max-width: 700px; /* 设置最大宽度 */
+    height: 80vh; /* 设置适当高度 */
+    margin-bottom: 20px; /* 增加下边距 */
+    margin-top: 100px;
+    margin-right:100px;
+    margin-left: 100px;
+    z-index: 10; /* 确保轮播图在上方 */
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease; /* 添加平滑过渡效果 */
+
+}
+
+.carousel-image {
+    min-width: 100%; /* 每张图片占满轮播区域 */
+    height: 100%; /* 保持图片比例 */
+    object-fit: cover; /* 图片缩放 */
+    border-radius: 30px;
+    
+
+}
+
+
+
+.header-mobile {
+    font-size: 1.2em;
+    margin-top: 50px;
+}
+.text-mobile2 {
+    font-size: larger;
+   
+    margin-top: 50px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: left;
+    transform: translateY(-50px);
+    opacity: 0;
+    transition: transform 5s ease, opacity 5s ease; /* 渐变效果 */
+}
+.text-mobile2.visible{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* .text-mobile2 h1{
+    font-size: 3em;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+} */
+
+.text-mobile1{
+    text-align: center;
+    color: #ffffffec;
+    font-size: 2em;
+    margin-bottom: 0px;
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: transform 5s ease, opacity 5s ease; /* 渐变效果 */
+}
+    
+.text-mobile1.visible{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+/* 三个问句的字体样式 */
+.text-mobile1 h1{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+    font-weight: 500;
+}
+
+.text-mobile2 h2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+}
+
+.header h1 {
+    font-size: 6em;
+    
+    color: #fffffff9;
+    text-shadow: 
+
+        4px 4px 0 rgba(0, 0, 0, 0.548),  /* 第二层阴影 */
+        10px 10px 10px rgba(0, 0, 0, 0.669); 
+}
+
+.header-title {
+    position: relative; /* 使其成为定位上下文 */
+}
+
+.year {
+    position: absolute; /* 绝对定位 */
+    top: -0.00001em; /* 根据需要微调，调整高度 */
+    left: 87%; /* 紧贴右侧 */
+    font-size: 0.3em; /* 设置较小的字体大小 */
+    color: #ffffff; /* 设置字体颜色 */
+    margin-left:-35px; /* 可以加入一些左边距 */
+    text-shadow: 2px 2px 4px rgb(37, 45, 49);
+}
+
+.header h2 {
+    font-size: 4em;
+    font-weight: 1000;
+    color: #ffffff;
+    text-shadow:
+    4px 4px 0 rgba(0, 0, 0, 0.548),  /* 第二层阴影 */
+    10px 10px 10px rgba(0, 0, 0, 0.669); 
+}
+.header h3{
+    font-size: 2.5em;
+    font-weight: 5000;
+    color: #ffffff;
+    text-shadow:
+    4px 4px 0 rgba(0, 0, 0, 0.548),  /* 第二层阴影 */
+    10px 10px 10px rgba(0, 0, 0, 0.669); 
+}
+
+
+/* 按钮样式 */
+#scrollButton {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* 鼠标悬停时改变样式 */
+#scrollButton:hover {
+    transform: scale(1.1); /* 放大10% */
+    opacity: 0.8; /* 改变透明度 */
+    cursor:pointer;
+}
+
+
+
+.section {
+    text-align: center;
+    margin: 80px 0;
+    padding: 0px;
+
+}
+
+.custom-title {
+    font-family: "宋体", sans-serif; /* 字体设置为宋体 */
+    text-align: center; /* 文本居中对齐 */
+    display: flex; /* 使用 flexbox 布局 */
+    align-items: center; /* 纵向居中对齐 */
+}
+
+.custom-title {
+    font-family: "宋体", sans-serif; /* 字体设置为宋体 */
+    text-align: center; /* 文本居中对齐 */
+    display: flex; /* 使用 flexbox 布局 */
+    align-items: center; /* 纵向居中对齐 */
+}
+
+.line {
+    flex: 1; /* 使虚线占满剩余空间 */
+    border-top: 1px dashed; /* 设置为虚线样式 */
+    margin: 0 1px; /* 设置左右间距 */
+    height: 1px; /* 高度为1px */
+}
+
+
+/*section1法律法规*/
+.lawTitleBlock{
+    text-align:  left;
+    list-style-type: none;
+
+}
+.liTitle{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+    
+}
+.lawTitle {
+    text-decoration: none; /* 去除下划线 */
+    color: #b7e3ed; /* 设置链接颜色 */
+    font-weight: bold; /* 加粗字体 */
+    font-size: 18px;
+    transition: color 0.3s, text-shadow 0.3s; /* 添加过渡效果 */
+}
+
+.lawTitle:hover {
+    color: #b0b3b7; /* 悬停时的颜色 */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+}
+
+
+
+
+
+/* 法律法规图片 */
+.laws{
+    height: 375px;
+    width:650px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.laws::before{
+    content:'旨在加强网络安全保护，维护国家安全及公民个人信息权益。';
+    position: absolute;
+    top: -375px;
+    left: 24px;
+    width: 600px;
+    height: 375px;
+    /* 行高让文字垂直居中 */
+    line-height: 375px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #ffffff;
+    /* 背景颜色 a代表背景颜色不透明度 */
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.laws:hover::before{
+    top:0;
+    animation: dropdown 2s;
+}
+/* 下面定义下降动画 */
+@keyframes dropdown {
+    0% {
+        top: -375px;
+    }
+
+    5% {
+        top: 0;
+    }
+
+    10% {
+        top: -30px;
+    }
+
+    20% {
+        top: 0;
+    }
+
+    30% {
+        top: -20px;
+    }
+
+    40% {
+        top: 0;
+    }
+
+    50% {
+        top: -15px;
+    }
+
+    60% {
+        top: 0;
+    }
+
+    70% {
+        top: -10px;
+    }
+
+    80% {
+        top: 0;
+    }
+
+    90% {
+        top: -5px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+
+/*网络威胁图片滚动器*/
+.scroll-container {
+
+
+    overflow: hidden;
+    width: 1200px; /* 容器的宽度 */
+    height: 350px; /* 容器的高度 */
+    border: 2px solid #cccccc00;
+    position: relative;
+    margin: 50px auto;
+    
+    background-color: rgba(0, 255, 255, 0);
+}
+
+.scroll-wrapper {
+    display: flex;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+}
+
+.scroll-images {
+    display: flex;
+
+}
+
+.scroll-images a {
+    margin-right: 100px; /* 图片之间的边距 */
+    border: #fcfeff;
+}
+
+.scroll-images img {
+    
+    width: auto; /* 设置宽度为100% */
+    height: 350px; /* 高度自动 */
+    object-fit: contain; /* 完整显示，保持比例，可能会有空白 */
+}
+
+
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/*画布*/
+canvas {
+    border: 2px solid rgba(0, 0, 0, 0);
+    display: block;
+    margin: 20px auto;
+    background: #ffffff00; /* 添加一个天空背景 */
+}
+
+.text-hover {
+    color: #ff000000; /* 鼠标悬停时的文本颜色 */
+}
+
+
+.content-block {
+    display: flex;
+    flex-direction: column; /* 可以让内容垂直排列 */
+    align-items: center; /* 水平居中所有内容 */
+    margin: 0; /* 取消外边距，保持紧密连接 */
+    padding: 40px; /* 为 content-block 添加内边距 */
+    position: relative;
+    
+    background-position: top; /* 居中背景图 */
+
+    background-size: cover; /* 确保背景图覆盖整个区域 */
+    background-repeat: no-repeat; /* 不重复背景图 */
+    color: #ffffff; /* 文字颜色 */
+}
+
+.blackboard {
+    max-width: 100%; /* 确保图片自适应宽度 */
+    height: auto; /* 保持图片比例 */
+    border-radius: 13px;
+}
+
+
+/*每个section部分介绍的渐变效果*/
+p {
+    text-align: center;
+    transform:translateY(-50px) ;
+    opacity: 0; /* 初始透明度为0 */
+    transition: ransform 3s ease,opacity 3s ease; /* 渐变效果 */
+}
+
+p.visible {
+    opacity: 1; /* 变为不透明 */
+    transform: translateY(0);
+
+}
+
+
+
+
+.section-content {
+    max-width: 1600px; /* 设置最大宽度 */
+    margin: 0 auto; /* 居中对齐 */
+    text-align: center; /* 文字居中 */
+    z-index: 200; /* 确保内容在叠加层之上 */
+
+}
+
+.section-title {
+    font-size: 2em; /* 调整标题字体大小 */
+    margin-bottom: 20px; /* 增加标题下方间距 */
+}
+
+/* 根据实际需求为具体 images 和 block-item 添加样式 */
+.images {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.block-items {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.block-item {
+    background-color: rgba(255, 255, 255, 0.1); /* 半透明背景 */
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%; /* 固定宽度以保持比例 */
+    line-height: 1.8; /* 行高 */
+}
+
+
+.title-text{
+    font-size: 2.8em;
+    text-shadow:2px 2px 4px #b7e3ed45;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+} 
