@@ -119,7 +119,6 @@ window.addEventListener('scroll', function() {
 });
 
 
-
 /* 云图 */
 const canvas = document.getElementById('animationCanvas');
 const ctx = canvas.getContext('2d');
@@ -157,7 +156,7 @@ function init() {
         const fontSize = parseInt(data.fontSize, 10);
         const textWidth = ctx.measureText(data.text).width;
         const padding = 50;
-        const speed = Math.random() * 0.1 + 0.3; // 速度介于0.3到0.6之间
+        const speed = Math.random() * 0.3 + 0.3; // 速度介于0.3到0.6之间
         const textObj = {
             text: data.text,
             x: Math.random() * (canvas.width - fontSize-padding*2-100)+padding, // 确保文本不超出画布右边界

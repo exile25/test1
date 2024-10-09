@@ -237,27 +237,6 @@ html {
     cursor:pointer;
 }
 
-.transit{
-    background-color: #0659a1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
-    padding: 20px; /* 增加内边距 */
-    margin:0; /* 上下边距 */
-    display: flex;
-    align-items: center; /* 垂直居中内容 */
-    justify-content: center; /* 水平居中内容 */
-    border-color: #86d8f1; /* 添加边框 */
-    height: auto;
-}
-
-.transit p {
-    font-size: 2.3em;
-    font-weight: bolder;
-    color: #000;
-    text-align: center; /* 居中文字 */
-    margin: 0; /* 去掉段落默认外边距 */
-}
-
-
 .section {
     text-align: center;
     margin: 80px 0;
@@ -456,22 +435,42 @@ html {
 
 .scroll-images {
     display: flex;
+    position:relative;
 
 }
 
 .scroll-images a {
+    position: relative;
     margin-right: 100px; /* 图片之间的边距 */
     border: #fcfeff;
+
 }
 
 .scroll-images img {
     
     width: auto; /* 设置宽度为100% */
     height: 350px; /* 高度自动 */
+    position: relative;
     object-fit: contain; /* 完整显示，保持比例，可能会有空白 */
 }
 
+.scroll-images .image-text {
+    position: absolute;
+    bottom: 0; /* 文字显示在图片底部 */
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    opacity: 0; /* 初始隐藏 */
+    transition: opacity 0.3s ease; /* 添加过渡效果 */
+}
 
+.scroll-images a:hover .image-text {
+    opacity: 1; /* 悬停时显示文字 */
+}
 
 @keyframes scroll {
     0% {
