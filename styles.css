@@ -89,6 +89,7 @@ html {
     max-width: 60%;
     text-align: left; /* 文字内容左对齐 */
     padding-left: 50px;
+    position:relative
 }
 
 
@@ -194,16 +195,16 @@ html {
 
 .header-title {
     position: relative; /* 使其成为定位上下文 */
+    margin: 0;
 }
 
 .year {
     position: absolute; /* 绝对定位 */
-    top: -0.00001em; /* 根据需要微调，调整高度 */
-    left: 87%; /* 紧贴右侧 */
+    top: 10px; /* 向上调整 */
+    right: 30px; /* 向右调整 */
     font-size: 0.3em; /* 设置较小的字体大小 */
     color: #ffffff; /* 设置字体颜色 */
-    margin-left:-35px; /* 可以加入一些左边距 */
-    text-shadow: 2px 2px 4px rgb(37, 45, 49);
+    text-shadow: 2px 2px 4px rgb(37, 45, 49); /* 文本阴影 */
 }
 
 .header h2 {
