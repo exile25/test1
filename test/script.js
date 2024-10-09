@@ -43,7 +43,6 @@ function submitQuiz() {
     let incorrectAnswers = [];
 
     const form = document.getElementById('quizForm');
-    const sectionTitles = ['一、判断题', '二、单选题', '三、多选题'];
     const answerCategories = {
         '一、判断题': ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7', 'q8'],
         '二、单选题': ['q9', 'q10', 'q11', 'q12', 'q13', 'q14', 'q15', 'q16'],
@@ -60,7 +59,7 @@ function submitQuiz() {
             const correctAnswer = answers[question].correct;
 
             if (selected.length === 0) {
-                // 没有选择任何答案，显示“未作答”
+                // 没有选择任何答案，记录为未作答
                 incorrectAnswers.push({
                     question: `${section} ${questionCounter}：${answers[question].question}`,
                     userAnswer: '未作答',
@@ -68,9 +67,12 @@ function submitQuiz() {
                     explanation: answers[question].explanation
                 });
             } else if (Array.isArray(correctAnswer)) {
-                // 处理多选题的逻辑
+                // 处理多选题
                 const correctSelected = correctAnswer.filter(ans => selected.includes(ans));
-                if (correctSelected.length === correctAnswer.length && selected.length === correctAnswer.length) {
+                const isAllCorrect = correctSelected.length === correctAnswer.length;
+                const isExactMatch = isAllCorrect && selected.length === correctAnswer.length;
+
+                if (isExactMatch) {
                     score += 5; // 全部选对得满分
                 } else if (correctSelected.length >= 2) {
                     score += 2; // 至少选中两个正确答案得2分
@@ -89,18 +91,21 @@ function submitQuiz() {
                     });
                 }
             } else {
-                // 处理判断题和单选题
+                // 区分判断题和单选题
                 let userAnswer = '';
-                if (question.startsWith('q1') || question.startsWith('q2') || question.startsWith('q3') || question.startsWith('q4') ||
-                    question.startsWith('q5') || question.startsWith('q6') || question.startsWith('q7') || question.startsWith('q8')) {
-                    // 判断题
+                let isCorrect = false;
+
+                if (section === '一、判断题') {
+                    // 判断题处理
                     userAnswer = selected[0] === 'true' ? '正确' : '错误';
-                } else {
-                    // 单选题
+                    isCorrect = userAnswer === correctAnswer;
+                } else if (section === '二、单选题') {
+                    // 单选题处理
                     userAnswer = selected[0];
+                    isCorrect = userAnswer === correctAnswer;
                 }
 
-                if (userAnswer === correctAnswer) {
+                if (isCorrect) {
                     score += 5; // 每题5分
                 } else {
                     incorrectAnswers.push({
@@ -111,9 +116,10 @@ function submitQuiz() {
                     });
                 }
             }
+
             questionCounter++;
         });
-        questionCounter = 1; // Reset question counter for the next section
+        questionCounter = 1; // 重置计数器为下一部分
     }
 
     // 存储结果到 localStorage
@@ -123,6 +129,7 @@ function submitQuiz() {
     // 跳转到结果页面
     window.location.href = 'result.html';
 }
+
 
 document.getElementById('submit').addEventListener('click', submitQuiz);
 startTimer();

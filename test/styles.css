@@ -15,6 +15,27 @@ body {
     padding: 0;
 }
 
+
+.transit{
+    background-color: #85c6fe;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+    padding: 20px; /* 增加内边距 */
+    margin:0; /* 上下边距 */
+    display: flex;
+    align-items: center; /* 垂直居中内容 */
+    justify-content: center; /* 水平居中内容 */
+    border-color: #86d8f1; /* 添加边框 */
+    height: auto;
+    border-radius: 10px;
+}
+
+.transit p {
+    font-size: 2.3em;
+    font-weight: bolder;
+    color: #ff7777;
+    text-align: center; /* 居中文字 */
+    margin: 0; /* 去掉段落默认外边距 */
+}
 /* 容器样式 */
 .container {
     width: 70%;
@@ -86,7 +107,7 @@ button:hover {
 
 /* 加油 (0-60分) - 轻微的弹跳效果 */
 .bounce-animation {
-    font-size: 130px;
+    font-size: 100px;
     color: red;
     text-align: center;
     animation: bounce 1s infinite;
@@ -107,7 +128,7 @@ button:hover {
 
 /* 继续努力 (60-80分) - 轻微的脉动效果 */
 .pulse-animation {
-    font-size: 24px;
+    font-size: 100px;
     color: orange;
     text-align: center;
     animation: pulse 1.5s infinite;
@@ -127,7 +148,7 @@ button:hover {
 
 /* 优秀 (80-99分) - 庆祝的星星闪烁效果 */
 .celebrate-animation {
-    font-size: 24px;
+    font-size: 100px;
     color: green;
     text-align: center;
     animation: celebrate 1.5s infinite;
@@ -147,7 +168,7 @@ button:hover {
 
 /* 安全小卫士 (100分) - 旋转效果 */
 .guardian-animation {
-    font-size: 24px;
+    font-size: 100px;
     color: blue;
     text-align: center;
     animation: rotate 2s infinite;
