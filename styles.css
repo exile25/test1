@@ -174,14 +174,12 @@ html {
 
 /* 三个问句的字体样式 */
 .text-mobile1 h1{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
     font-weight: 500;
 }
 
 .text-mobile2 h2{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 400;
+    font-family: 'Microsoft YaHei';
 }
 
 .header h1 {
@@ -238,6 +236,25 @@ html {
     cursor:pointer;
 }
 
+.transit{
+    background-color: #0659a1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+    padding: 20px; /* 增加内边距 */
+    margin:0; /* 上下边距 */
+    display: flex;
+    align-items: center; /* 垂直居中内容 */
+    justify-content: center; /* 水平居中内容 */
+    border-color: #86d8f1; /* 添加边框 */
+    height: auto;
+}
+
+.transit p {
+    font-size: 2.3em;
+    font-weight: bolder;
+    color: #000;
+    text-align: center; /* 居中文字 */
+    margin: 0; /* 去掉段落默认外边距 */
+}
 
 
 .section {
@@ -273,20 +290,21 @@ html {
 .lawTitleBlock{
     text-align:  left;
     list-style-type: none;
+   
 
 }
 .liTitle{
-    text-align: center;
+    text-align: left;
     font-size: 25px;
-    font-weight: bolder;
+    font-weight: bold;
     
 }
 .lawTitle {
     text-decoration: none; /* 去除下划线 */
     color: #b7e3ed; /* 设置链接颜色 */
-    font-weight: bold; /* 加粗字体 */
     font-size: 18px;
     transition: color 0.3s, text-shadow 0.3s; /* 添加过渡效果 */
+    font-family: 'Microsoft YaHei';
 }
 
 .lawTitle:hover {
@@ -295,88 +313,124 @@ html {
 }
 
 
-
-
-
-/* 法律法规图片 */
-.laws{
-    height: 375px;
-    width:650px;
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
+.vertical-line {
+    width: 2px; /* 线的宽度 */
+    background-color: #ffffffcc; /* 线的颜色 */
+    border-left: 3px dashed #00c3ff; /* 添加虚线效果 */
+    height: auto; /* 根据内容自适应高度 */
+    margin: 0 20px; /* 左右间距 */
 }
-.laws::before{
-    content:'旨在加强网络安全保护，维护国家安全及公民个人信息权益。';
+
+.lawAdd:after {
+    content: '网络绝非法外之地';
     position: absolute;
-    top: -375px;
-    left: 24px;
-    width: 600px;
-    height: 375px;
-    /* 行高让文字垂直居中 */
-    line-height: 375px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bolder;
-    color: #ffffff;
-    /* 背景颜色 a代表背景颜色不透明度 */
-    background-color: rgba(0, 0, 0, .3);
+    top: 0;
+    left: 0;
+    /* 透明色 */
+    color: transparent;
+    background-image: linear-gradient(to right, #c23616, #ff2d2d, #ff5959, rgb(252, 155, 155), 
+    #cf8282, #ff8989,#ff4e4e, #ff3300);
+    /* 背景绘制区域，值为text时，给文字设置镂空效果，前提必须是文字颜色为透明色 */
+    background-clip: text;
+    /* 谷歌浏览器私有属性 */
+    -webkit-background-clip: text;
+    /* 使用裁切方法创建元素的可显示区域 circle表示裁切一个圆形 100px表示圆的直径 0%和50%表示圆心位置 直径和圆心两组值中间用at隔开*/
+    clip-path: circle(100px at 0% 50%);
+    -webkit-clip-path: circle(100px at 0% 50%);
+    animation: move 5s infinite;
 }
 
-.laws:hover::before{
-    top:0;
-    animation: dropdown 2s;
-}
-/* 下面定义下降动画 */
-@keyframes dropdown {
+@keyframes move {
     0% {
-        top: -375px;
-    }
-
-    5% {
-        top: 0;
-    }
-
-    10% {
-        top: -30px;
-    }
-
-    20% {
-        top: 0;
-    }
-
-    30% {
-        top: -20px;
-    }
-
-    40% {
-        top: 0;
+        clip-path: circle(100px at 0% 50%);
+        -webkit-clip-path: circle(100px at 0% 50%);
     }
 
     50% {
-        top: -15px;
-    }
-
-    60% {
-        top: 0;
-    }
-
-    70% {
-        top: -10px;
-    }
-
-    80% {
-        top: 0;
-    }
-
-    90% {
-        top: -5px;
+        clip-path: circle(100px at 100% 50%);
+        -webkit-clip-path: circle(100px at 100% 50%);
     }
 
     100% {
-        top: 0;
+        clip-path: circle(100px at 0% 50%);
+        -webkit-clip-path: circle(100px at 0% 50%);
     }
 }
+
+/* 法律法规图片 */
+.box {
+    /* 弹性布局 使页面元素水平+垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 使页面占屏幕总高 */
+    height: 65vh;
+    width:40%;
+}
+
+.box ul {
+    width: 540px; /* 调整宽度以适应垂直布局 */
+    height: auto; /* 高度自适应 */
+    /* 溢出隐藏 */
+    overflow: hidden;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column; /* 改为垂直布局 */
+    border-radius: 10px;
+}
+
+.box ul li {
+    /* 相对定位 */
+    position: relative;
+    list-style-type: none;
+    width: 540px; /* 设置固定宽度 */
+    height: 100px; /* 初始高度较小 */
+    transition: all 0.5s;
+    cursor: pointer; /* 鼠标悬停时显示手型光标 */
+    overflow: hidden; 
+    border-bottom: 1px solid #ff0000; /* 添加分隔线 */
+}
+
+.box ul li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s;
+}
+
+.box ul li p {
+    /* 绝对定位 */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: all 0.3s;
+}
+
+.box ul li:hover p {
+    font-size: 20px;
+}
+
+.box ul li:hover {
+    height: 300px; /* 悬停时高度增大 */
+    width: 540px; /* 保持宽度不变 */
+}
+
+.box ul li:hover img {
+    height: 300px; /* 调整图片高度以适应增大的容器 */
+}
+
+.box ul li:hover p {
+    bottom: 10px; /* 调整文本位置 */
+}
+
 
 
 /*网络威胁图片滚动器*/
@@ -504,9 +558,11 @@ p.visible {
     display: flex;
     justify-content: space-around;
     margin-top: 30px;
+   
 }
 
 .block-item {
+   
     background-color: rgba(255, 255, 255, 0.1); /* 半透明背景 */
     padding: 20px;
     border-radius: 10px;
