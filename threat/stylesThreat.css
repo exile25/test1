@@ -1,25 +1,36 @@
 body {
+    background-image: url('circle-5090539_1920.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
     font-family: 'Arial', sans-serif; /* 设置字体 */
     font-size: large;
     line-height: 1.6; /* 行间距 */
     padding-left: 150px; /* 内边距 */
     padding-right: 150px;
     background-color: #f9f9f9; /* 背景颜色 */
-    color: #333; /* 字体颜色 */
+    color: #ffffff; /* 字体颜色，保持为白色 */
+}
+.dark-background {
+    background-color: #4f4c6590; /* 深色背景，例如深灰色 */
+    color: #ffffff; /* 字体颜色保持为白色 */
+    padding: 10px; /* 添加内边距 */
+    border-radius: 10px; /* 可选：使背景有圆角效果 */
 }
 
 h1 {
     text-align: center; /* 标题居中 */
-    color: #2c3e50;
+    color: #ffffff; /* 标题颜色 */
 }
 
 h2 {
-    color: #2980b9; /* 二级标题颜色 */
+    color: #ffffff; /* 修改为白色 */
     margin-top: 30px;
 }
 
 h3 {
-    color: #c0392b; /* 三级标题颜色 */
+    color: #ffffff; /* 修改为白色 */
     margin-top: 20px;
 }
 
@@ -31,9 +42,11 @@ ul {
 /* 段落缩进 */
 p {
     text-indent: 2em; /* 每个自然段前面缩进2个汉字的宽度 */
+    color: #ffffff; /* 修改为白色 */
 }
 
 .reference {
     margin-top: 40px;
     font-style: italic; /* 参考文献斜体 */
+    color: #ffffff; /* 修改为白色 */
 }
