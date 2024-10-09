@@ -51,16 +51,15 @@ function submitQuiz() {
     };
     
     let questionCounter = 1;
-    let sectionCounter = 0;
 
     for (let section in answerCategories) {
-        sectionCounter++;
         const questions = answerCategories[section];
         questions.forEach(question => {
-            const selected = form[question] ? (Array.from(form[question]).filter(input => input.checked).map(input => input.value)) : null;
+            const selectedElements = form[question] ? Array.from(form[question]) : [];
+            const selected = selectedElements.filter(input => input.checked).map(input => input.value);
             const correctAnswer = answers[question].correct;
 
-            if (selected === null || selected.length === 0) {
+            if (selected.length === 0) {
                 // 没有选择任何答案，显示“未作答”
                 incorrectAnswers.push({
                     question: `${section} ${questionCounter}：${answers[question].question}`,
@@ -70,11 +69,17 @@ function submitQuiz() {
                 });
             } else if (Array.isArray(correctAnswer)) {
                 // 处理多选题的逻辑
-                const correctCount = correctAnswer.filter(ans => selected.includes(ans)).length;
-                if (correctCount === correctAnswer.length) {
+                const correctSelected = correctAnswer.filter(ans => selected.includes(ans));
+                if (correctSelected.length === correctAnswer.length && selected.length === correctAnswer.length) {
                     score += 5; // 全部选对得满分
-                } else if (correctCount >= 2) {
+                } else if (correctSelected.length >= 2) {
                     score += 2; // 至少选中两个正确答案得2分
+                    incorrectAnswers.push({
+                        question: `${section} ${questionCounter}：${answers[question].question}`,
+                        userAnswer: selected.join(', '),
+                        correctAnswer: correctAnswer.join(', '),
+                        explanation: answers[question].explanation
+                    });
                 } else {
                     incorrectAnswers.push({
                         question: `${section} ${questionCounter}：${answers[question].question}`,
@@ -84,7 +89,17 @@ function submitQuiz() {
                     });
                 }
             } else {
-                const userAnswer = selected[0] === 'true' ? '正确' : '错误';
+                // 处理判断题和单选题
+                let userAnswer = '';
+                if (question.startsWith('q1') || question.startsWith('q2') || question.startsWith('q3') || question.startsWith('q4') ||
+                    question.startsWith('q5') || question.startsWith('q6') || question.startsWith('q7') || question.startsWith('q8')) {
+                    // 判断题
+                    userAnswer = selected[0] === 'true' ? '正确' : '错误';
+                } else {
+                    // 单选题
+                    userAnswer = selected[0];
+                }
+
                 if (userAnswer === correctAnswer) {
                     score += 5; // 每题5分
                 } else {
@@ -101,11 +116,13 @@ function submitQuiz() {
         questionCounter = 1; // Reset question counter for the next section
     }
 
-    const resultUrl = `result.html?score=${score}&incorrectAnswers=${encodeURIComponent(JSON.stringify(incorrectAnswers))}`;
-    window.location.href = resultUrl;
+    // 存储结果到 localStorage
+    localStorage.setItem('score', score);
+    localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
+
+    // 跳转到结果页面
+    window.location.href = 'result.html';
 }
-
-
 
 document.getElementById('submit').addEventListener('click', submitQuiz);
 startTimer();

@@ -5,6 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>测试结果</title>
+    <style>
+        /* 示例动画样式 */
+        .bounce-animation {
+            animation: bounce 2s infinite;
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        .celebrate-animation {
+            animation: celebrate 2s infinite;
+        }
+
+        .guardian-animation {
+            animation: guardian 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes celebrate {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes guardian {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(360deg); }
+        }
+
+        .feedback-item {
+            margin-bottom: 15px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -16,10 +58,11 @@
         <button onclick="window.location.href='index.html'">返回测试</button>
     </div>
     <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const score = parseInt(urlParams.get('score'), 10);
-        const incorrectAnswers = JSON.parse(urlParams.get('incorrectAnswers'));
+        // 从 localStorage 中读取数据
+        const score = parseInt(localStorage.getItem('score'), 10);
+        const incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers')) || [];
 
+        // 显示得分
         document.getElementById('score').innerHTML = `<h2>你的得分: ${score} / 100</h2>`;
 
         // 根据得分显示对应的动画
@@ -44,6 +87,7 @@
             document.getElementById('animation').innerHTML = `<div class="${animationClass}">${animationText}</div>`;
         }
 
+        // 显示错误题目及解析
         if (incorrectAnswers.length > 0) {
             let feedback = "<h3>错误题目及解析:</h3><ul>";
             incorrectAnswers.forEach(item => {
@@ -58,7 +102,13 @@
             });
             feedback += "</ul>";
             document.getElementById('feedback').innerHTML = feedback;
+        } else {
+            document.getElementById('feedback').innerHTML = "<h3>恭喜你，全部答对了！</h3>";
         }
+
+        // 清除 localStorage 数据（可选）
+        localStorage.removeItem('score');
+        localStorage.removeItem('incorrectAnswers');
     </script>
 </body>
 </html>
