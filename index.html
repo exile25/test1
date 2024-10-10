@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>青年网络安全教育校园日</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+
     <style>
         .canvas-text {
             position: absolute;
@@ -185,16 +187,67 @@
 <section id="section3" class="content-block" style="background-image: url('img/背景4.jpg');">
     <div class="section-content">
         <br><br><br><br><br><br>
+        
+        <div style="display: inline-flex;">
+        <canvas id="animationCanvas" width="850" height="600" padding="40"></canvas>
+        
+    <div style="display: block;"> 
         <h4 class="section-title custom-title">
-            <span class="line"></span>
-            <span class="title-text">< S3 网络谣言 ></span>
-            <span class="line"></span>
+            <span class="title-text" style="margin-left: 100px;margin-top: 0;"> S3 网络谣言 </span>
         </h4>
         <div class="additional-text" style="display: flex;align-items: left; margin-bottom: 20px;">
-            <p style="text-align: left;font-size: 1.5em;margin-left: 150px;margin-right:100px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;抵制网络谣言对于维护社会稳定、保护个人权益、促进真实信息传播以及增强网络信任至关重要，是构建健康、可信网络环境不可或缺的一环。</p>
-        </div>
-        <canvas id="animationCanvas" width="1200" height="600" padding="40"></canvas>
+            <p style="text-align:justify;
+            font-size: 1.5em;
+            margin-left: 10px;
+            margin-right:10px; 
+            background-color: rgba(32, 88, 165, 0.598);
+            border-radius: 8px;
+            color:cyan;
+            padding: 10px;"><span style="font-size: 2em;font-family: 'Microsoft YaHei';">当</span>今信息爆炸的网络空间，网络谣言如同野火般燎原，以惊人的速度迅速扩散，对社会发展的各个方面产生深远的影响。网络谣言不仅侵蚀了公众的信任基础，导致社会信任危机，还可能引发群体事件的爆发，加剧社会矛盾，严重危害社会稳定。为应对这一严峻挑战，我们必须采取有力措施，加强网络监管，提高公众辨别谣言的能力；青年群体作为网络主力军，更应该自觉抵制谣言，不传无轻之谈，无听毁誉之语。时代发展呼吁我们，社会需要秩序，公民需要良知，谣言需要惩处，网络需要清朗。</p>
+        
     </div>
+    </div>
+    </div>
+
+
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal-content">
+                <span class="modal-close" id="closeModal">&times;</span>
+                <div class="modal-header">
+                    <h2 id="modalTitle">标题</h2>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <p>内容</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="cloudLink">
+            <ul>
+                <li>
+                    <a href="cloudText\提升.html" target="_blank"><span>提升网络媒介素养</span><br>社会化媒体时代下，媒介素养不仅是对媒体人的要求，也是现如今对广大网民的要求，媒介素养的缺失便会助长网络谣言的传播。因此，随着互联网发展的进步，广大网民也应提高自身网络素养。</a>
+                </li>
+                <li>
+                    <a href="cloudText\做到.html" target="_blank"><span>做到不信谣、不传谣</span><br>从社会层面看，不信谣、不传谣能避免社会恐慌、保障和谐，阻止谣言引发公众恐慌扰乱秩序和破坏群体关系；从个体角度，可确保个体基于准确信息正确决策，还能保护个体免受法律风险，避免因传谣损害声誉。</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="cloudText\积极.html" target="_blank"><span>积极参与网络辟谣</span><br>积极参与网络辟谣可以净化网络环境，减少虚假信息，构建健康传播生态，还能维护社会公序良俗，抵制不良价值观；从公众利益讲，也能保障公众知情权，为公众理性决策提供准确信息，同时增强公众对网络信息的信任，促进网络社会发展与公众积极互动。</a>
+                </li>
+                <li>
+                    <a href="cloudText\增强.html" target="_blank"><span>增强自身法律意识</span><br>根据法律的威慑理论，网民遵守法律能够从源头上遏制网络谣言的产生。法律明确规定了传播谣言的违法性，知晓并遵守法律的网民不会轻易制造谣言。网民是网络信息传播的节点。遵守法律的网民不会参与到谣言的传播过程中，从而阻断了谣言的传播链条。</a>
+                </li>
+            </ul>
+        </div>
+        
+        
+        
+            
+        </div>
+    </div>
+    
 </section>
 
 <section id="section4" class="content-block" style="background-image: url('img/背景3.jpg');">
@@ -202,7 +255,7 @@
         <br><br><br><br><br><br><br><br><br>
         <h4 class="section-title custom-title">
             <span class="line"></span>
-            <span class="title-text">< S4 校园风采 ></span>
+            <span class="title-text">< S4 校园活动 ></span>
             <span class="line"></span>
         </h4>
         <div class="additional-text" style="display: flex;align-items: left; margin-bottom: 20px;">
@@ -221,6 +274,10 @@
         </div>
     </div>
 </section>
+
+
+
+
 
 <script src="script.js"></script>
 </body>
