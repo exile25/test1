@@ -6,7 +6,8 @@
     <title>青年网络安全教育校园日</title>
     <link rel="stylesheet" href="styles.css">
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
-
+    
+  
     <style>
         .canvas-text {
             position: absolute;
@@ -22,26 +23,26 @@
     </style>
 </head>
 <body>
-    <nav id="navbar" style="    font-family: 'Microsoft YaHei';position: fixed; top: 0; left: 0; width: 100%;  padding: 20px;z-index: 1000; transition: background-color 0.5s, opacity 0.3s;">
+    <nav id="navbar" style=" font-family: 'Microsoft YaHei';position: fixed; top: 0; left: 0; width: 100%;  padding: 20px;z-index: 1000; transition: background-color 0.5s, opacity 0.3s;">
         <ul style="list-style-type: none; margin: 0; padding: 0; display: flex; justify-content: left;">
             <li style="margin-right: 5px;">
                 <img src="img\title.png" style="height: 50px;">
             </li>
             <li style="margin-right:400px">
-                <a href="#index" style="color: #fff; text-decoration: none; font-size: 36px; font-weight: bold;">青年网络安全教育校园日</a>
+                <a  href="#index" style="color: #fff; text-decoration: none; font-size: 36px; font-weight: bold;">青年网络安全教育校园日</a>
             </li>
            
             <li style="margin-right: 40px;margin-top: 7px;">
-                <a href="#section1" style="color: #fff; text-decoration: none; font-size: 25px; ">网络安全法律法规</a>
+                <a class="aLink" href="#section1" >网络安全法律法规</a>
             </li>
             <li style="margin-right: 40px;margin-top: 7px;">
-                <a href="#section2" style="color: #fff; text-decoration: none; font-size: 25px; ">常见网络威胁</a>
+                <a class="aLink" href="#section2" >常见网络威胁</a>
             </li>
             <li style="margin-right: 40px;margin-top: 7px;">
-                <a href="#section3" style="color: #fff; text-decoration: none; font-size: 25px; ">网络谣言</a>
+                <a class="aLink" href="#section3" >网络谣言</a>
             </li>
             <li style="margin-top: 7px;">
-                <a href="#section4" style="color: #fff; text-decoration: none; font-size: 25px; ">校园风采</a>
+                <a class="aLink" href="#section4" >校园活动</a>
             </li>
         </ul>
     </nav>
@@ -259,20 +260,41 @@
             <span class="line"></span>
         </h4>
         <div class="additional-text" style="display: flex;align-items: left; margin-bottom: 20px;">
-            <p style="text-align: left;font-size: 1.5em;margin-left: 150px;margin-right:100px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;开展网络安全主题校园活动对于提升学生网络安全意识、培养良好网络行为习惯、增强网络安全技能以及促进校园信息化建设等方面都具有重要意义。</p>
         </div>
-        <br><br><br><br><br><br><br>
         <div class="block-items">
-            <div>
-                wenzi
+            <div class="se4-1">
+                <div class="se4-p">
+                    <p style="text-align: left;font-size: 1.5em;margin-left: 10px;margin-right:10px;"><span style="font-size: 2em;font-family: 'Microsoft YaHei';">开</span>展网络安全主题校园活动不仅是应对当前网络安全挑战的重要手段，更是培养我们在数字时代健康成长的关键步骤。随着信息技术的飞速发展，网络已成为我们学习、交流、生活的必不可少的一部分。然而，伴随而来的网络安全问题也日益凸显，我们在享受数字化便利的同时，面临着各种网络风险，如网络诈骗、隐私泄露、虚假信息、网络欺凌等。通过举办网络安全主题校园活动，可以有效提高同学们的网络安全意识，更好地保护自己免受网络风险的侵害。</p>
+                </div>
+                <br>
+                <div class="se4-img">        
+                    <img class='blackboard' src="img/黑板.jpg" alt="照片">
+                    <div class="se4-text"><p class="black-title lead">《文明上网顺口溜》</p>
+                        网络世界不一般，安全文明记心间。言语如桥连你我，欢笑同享彩虹现。
+                        理性交流莫冲突，撒谎诋毁不可沾。擦亮双眼防诈骗，陌生链接别乱点。
+                        转账汇款需谨慎，多思多想多分辨。上网时间安排好，学业工作不拖延。
+                        影视动漫别贪看，游戏适度乐无边。不良网站是陷阱，远离方能保平安。
+                        虚拟世界有监督，网络警察在眼前。文明言行共倡导，绿色网络同创建。
+                        携手共筑安全网，和谐晴天在眼前。心中牢记法与德，共建清朗网络天。
+                        </div>
+                </div>
             </div>
-            <div>        
-                <img class='blackboard' src="img/黑板.jpg" alt="照片">
+            <div class="block-item title-text newss">
+                <div class="wrap">
+                    <!-- <div class="left-1"></div>
+                    <div class="left-2"></div> -->
+                    <div class="right-1"></div>
+                    <div class="right-2"></div>
+                    <p class="desc">青年网络安全</p>
+                  </div>
+                <div id="lastContainer"></div>
+
             </div>
-            <div class="block-item title-text">图片（多类型图片展示）</div>
-            
+
         </div>
+
     </div>
+
 </section>
 
 
@@ -280,5 +302,110 @@
 
 
 <script src="script.js"></script>
+<script type="text/javascript" src="echarts.min.js"></script>
+
+<script type="text/javascript">
+    var dom = document.getElementById("lastContainer");
+    var myChart = echarts.init(dom);
+    var app = {};
+    
+    var option;
+    
+    
+    
+    
+    option = {
+     
+        series: [{
+            type: 'gauge',
+            startAngle: 90,
+            endAngle: -270,
+            pointer: {
+                show: false
+            },
+            progress: {
+                show: true,
+                overlap: false,
+                roundCap: true,
+                clip: false,
+                itemStyle: {
+                    borderWidth: 2
+                }
+            },
+            axisLine: {
+                
+                lineStyle: {
+                    width: 40,
+                    color: [
+                        [1, '#cfcfcfa9'],          
+                    ]
+
+                }
+            },
+            splitLine: {
+                show: false,
+                distance: 0,
+                length: 10,
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                show: false,
+                distance: 50
+            },
+            data: [{
+                value: 49,
+                name: 'perfect',
+                title: {
+                    offsetCenter: ['0%', '-50%']
+                },
+                detail: {
+                    offsetCenter: ['0%', '-30%']
+                }
+            },
+            {
+                value: 27,
+                name: 'good',
+                title: {
+                    offsetCenter: ['0%', '-5%']
+                },
+                detail: {
+                    offsetCenter: ['0%', '15%']
+                }
+            },
+            {
+                value: 24,
+                name: 'fail',
+                title: {
+                    offsetCenter: ['0%', '40%']
+                },
+                detail: {
+                    offsetCenter: ['0%', '60%']
+                }
+            }
+            ],
+            title: {
+                fontSize: 20,
+                color:'white',
+                height:20
+            },
+            detail: {
+                
+                width: 25,
+                height: 25,
+                fontSize: 20,
+                color: 'white',
+                
+                formatter: '{value}%'
+            }
+        }]
+    };
+    
+    if (option && typeof option === 'object') {
+        myChart.setOption(option);
+    }
+    
+            </script>
 </body>
 </html>

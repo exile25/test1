@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // 滚动时改变导航栏背景
 window.onscroll = function() {
     var navbar = document.getElementById("navbar");
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        navbar.style.backgroundColor = "rgba(31, 100, 202)"; // 滚动后背景颜色
+    if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+        navbar.style.backgroundColor = "rgb(27, 27, 172)"; // 滚动后背景颜色
         navbar.style.opacity = "0.9"; // 滚动后透明度
         navbar.style.boxShadow='0 2px 5px rgb(255, 255, 255)' // 滚动后boxshadow颜色
 
@@ -77,6 +77,8 @@ window.onscroll = function() {
 
     }
 };
+
+
 
 
 // 为 .text-mobile2 添加可见性

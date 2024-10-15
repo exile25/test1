@@ -19,9 +19,19 @@ html {
     scroll-behavior: smooth; /* 添加平滑滚动 */
 }
 
-/* 标题和背景 */
 
+.aLink{
+   color: #fff; text-decoration: none; font-size: 25px;
+   padding: 5px;
+   border-radius: 8px;
+   transition: background-color 0.4s;
+}
 
+.aLink:hover{
+    background-color:rgba(212, 0, 255, 0.76) ;
+    border-radius: 8px;
+    
+}
 
 /* 修改 .container 类 */
 .container {
@@ -576,6 +586,7 @@ canvas {
     max-width: 100%; /* 确保图片自适应宽度 */
     height: auto; /* 保持图片比例 */
     border-radius: 13px;
+    
 }
 
 
@@ -628,7 +639,7 @@ p.visible {
     background-color: rgba(255, 255, 255, 0.1); /* 半透明背景 */
     padding: 20px;
     border-radius: 10px;
-    width: 40%; /* 固定宽度以保持比例 */
+    width: 50%; /* 固定宽度以保持比例 */
     line-height: 1.8; /* 行高 */
 }
 
@@ -663,7 +674,7 @@ p.visible {
             width: 80%;
             max-width: 800px;
             max-height: 80%;
-            background: #fff;
+            background: #294585;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             overflow: hidden;
@@ -718,3 +729,185 @@ p.visible {
                 height: 90%;
             }
         }
+
+
+.se4-1{
+    display: block;
+    width: 50%;
+}
+
+.se4-p{
+    background-color: #42424230;
+    border-radius: 8px;
+
+}
+
+.se4-p p{
+    color: #b7e3ed;
+}
+
+.se4-img{
+    position: relative;
+    display: inline-block;
+}
+
+.black-title{
+    color: #ffffff;
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 0;
+}
+.se4-text{
+    position: absolute; /* 绝对定位 */
+    top: 50%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 调整文本位置，使其真正居中 */
+    color: white; /* 根据需要设置颜色 */
+    font-size: 1.3em; /* 根据需要设置字体大小 */
+    text-align: center; /* 文本居中 */
+    white-space: pre-line;
+    font-family: 'Microsoft YaHei';
+    width:800px;
+}
+
+
+
+
+.wrap {
+    position: relative;
+    background-image: url('se4/bg-1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 6px;
+    height: 88%;
+    width: 88%;
+  }
+
+  #lastContainer {
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 320px; /* 根据需要调整仪表盘大小 */
+    height: 320px;
+    z-index: 10; /* 确保仪表盘在上方 */
+    background: radial-gradient(circle, #0a2d9892 35%, #1fa2ff27 20%,#1fa2ff0d 20%);
+    padding: 0;
+}
+
+/* color{
+    color: #cfcfcfa9;
+} */
+
+
+
+.left-1,
+  .left-2,
+  .right-1,
+  .right-2 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    filter: drop-shadow(4px 4px 12px rgba(0, 0, 0, .5));
+    background-size: cover;
+    opacity: .7;
+    transition: .7s ease-in-out;
+  }
+  
+  .left-1::after,
+  .left-2::after,
+  .right-1::after,
+  .right-2::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background-image: url("se4/bg-2.jpg");
+    background-size: cover;
+  }
+  
+  .left-1 {
+    left: -400px;
+    transform: rotateZ(30deg);
+    overflow: hidden;
+  }
+  
+  .left-1::after {
+    transform: rotateZ(-30deg);
+  }
+  
+  .left-2 {
+    left: -400px;
+    transform: rotateZ(-30deg);
+    overflow: hidden;
+  }
+  
+  .left-2::after {
+    transform: rotateZ(30deg);
+  }
+  
+  .right-1 {
+    right: -400px;
+    transform: rotateZ(105deg);
+    overflow: hidden;
+  }
+  
+  .right-1::after {
+    transform: rotateZ(-105deg);
+  }
+  
+  .right-2 {
+    right: -400px;
+    transform: rotateZ(-105deg);
+    overflow: hidden;
+  }
+  
+  .right-2::after {
+    transform: rotateZ(105deg);
+  }
+  
+  .wrap .desc{
+    opacity: 0;
+    font-weight: bold;
+    font-size: 70px;
+    letter-spacing: 10px;
+    color: #ffffffe0;
+    transition: opacity 1s ease-in;
+    text-shadow:2px 2px 2px #0e293f;
+  }
+  
+  .wrap:hover .left-1 {
+    left: -650px;
+  }
+  
+  .wrap:hover .left-2 {
+    left: -800px;
+  }
+  
+  .wrap:hover .right-1 {
+    right: -650px;
+  }
+  
+  .wrap:hover .right-2 {
+    right: -810px;
+  }
+  
+  .wrap:hover .desc {
+    opacity: 1;
+  }
+
+  .newss{
+    
+        width: 46%;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff00;
+      
+  }
