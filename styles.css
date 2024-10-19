@@ -18,6 +18,47 @@ body {
 html {
     scroll-behavior: smooth; /* 添加平滑滚动 */
 }
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* 1.2倍放大 */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 应用动画到链接 */
+.overlay-text a {
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(47, 105, 204);
+    font-size: 30px; /* 调整字体大小 */
+    font-weight: 900;
+    text-shadow: 
+        1px 1px 4px rgba(0, 0, 0, 0.8); /* 优化阴影效果，使用更轻的阴影 */
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    animation: pulse 2s infinite; /* 3秒的放大缩小循环动画 */
+    padding: 5px 10px; /* 增加一些内边距 */
+}
+
+/* 优化悬停效果 */
+.overlay-text a:hover {
+    transform: scale(1.15); /* 悬停时稍微增加放大倍数 */
+    color: #f0f0f0; /* 悬停时字体颜色变得更亮 */
+}
+
+.section-title span{
+    text-shadow: 
+    7px 7px orange,
+						18px 18px black;
+-webkit-text-fill-color: transparent;
+-webkit-text-stroke-width: 4px;
+-webkit-text-stroke-color: white;
+}
+
 
 .bgText {
     position: relative; /* 确保定位 */
@@ -58,7 +99,6 @@ html {
         background-position: 0% 50%; /* 回到初始位置 */
     }
 }
-
 
 
 
@@ -186,27 +226,22 @@ html {
 }
 .text-mobile2 {
     font-size: larger;
-   
+
+    
     margin-top: 50px;
     margin-bottom: 100px;
     margin-left: 100px;
     margin-right: 100px;
     text-align: left;
-    transform: translateY(-50px);
-    opacity: 0;
-    transition: transform 5s ease, opacity 5s ease; /* 渐变效果 */
+    transform: translateX(-100%);
+    opacity: 1;
+    transition: transform 1.3s ease, opacity 3.3s ease; /* 渐变效果 */
 }
-.text-mobile2.visible{
-    transform: translateY(0);
+.text-mobile2.active{
+    transform: translateX(0);
     opacity: 1;
 }
 
-/* .text-mobile2 h1{
-    font-size: 3em;
-    text-align: center;
-    margin-top: 100px;
-    margin-bottom: 50px;
-} */
 
 .text-mobile1{
     text-align: center;
@@ -231,10 +266,17 @@ html {
     text-shadow: 0 0 0.5em #fff;
 }
 
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+}
+
 
 
 .text-mobile2 h2{
     font-family: 'Microsoft YaHei';
+    color:#fff;
+    text-shadow: 0 0 0.5em #fff;
 }
 
 .header h1 {
@@ -270,7 +312,7 @@ html {
     10px 10px 10px rgba(0, 0, 0, 0.669); 
 }
 .header h3{
-    font-size: 2.5em;
+    font-size: 2.2em;
     font-weight: 5000;
     color: #ffffff;
     text-shadow:
@@ -474,7 +516,7 @@ main {
     /* 透明色 */
     color: transparent;
     background-image: linear-gradient(to right, #c23616, #ff2d2d, #ff5959, rgb(249, 1, 1), 
-    #cf8282, #ff8989,#ff4e4e, #ff3300);
+    #ed3737, #f74949,#ff4e4e, #ff3300);
     /* 背景绘制区域，值为text时，给文字设置镂空效果，前提必须是文字颜色为透明色 */
     background-clip: text;
     /* 谷歌浏览器私有属性 */
@@ -575,6 +617,17 @@ main {
 .box ul li:hover p {
     bottom: 10px; /* 调整文本位置 */
 }
+
+@keyframes zoom {
+    0%, 20% {
+        height: 100px; /* 初始高度 */
+    }
+    20%, 100% {
+        height: 300px; /* 放大后的高度 */
+    }
+}
+
+
 
 /*网络威胁图片滚动器*/
 .scroll-container {
@@ -963,6 +1016,9 @@ font-size: 1.3em;
 
 .newss p{
     text-align: justify;
+    background-color: #00c3ff87;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 #lastContainer {

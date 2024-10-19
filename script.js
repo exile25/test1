@@ -1,3 +1,81 @@
+/*法律法规图片自动轮播 */
+const items = document.querySelectorAll('.box ul li');
+let currentIndex = 0;
+let isHovered = false;
+
+function startAnimation() {
+    if (!isHovered) {
+        items[currentIndex].style.animation = 'none'; // 清除当前项的动画
+        currentIndex = (currentIndex + 1) % items.length; // 循环切换
+    }
+}
+
+setInterval(startAnimation, 2000); // 每2秒切换一次
+
+// 添加鼠标悬停事件
+items.forEach((item) => {
+    item.addEventListener('mouseenter', () => {
+        isHovered = true; // 鼠标悬停，停止动画
+        items[currentIndex].style.animation = 'none'; // 当前项缩小
+    });
+
+    item.addEventListener('mouseleave', () => {
+        isHovered = false; // 鼠标移开，恢复动画
+    });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    var lines = document.querySelectorAll('.text-mobile1 .lins'); // 获取每一行的元素
+    var hasStarted = false; // 控制动画是否已经启动
+
+    // 定义打字机动画
+    function typeWriter(lineElement) {
+        var textContent = lineElement.innerHTML;
+        lineElement.innerHTML = ''; // 清空内容以便重新打字显示
+        var index = 0;
+
+        // 从元素的 data-speed 属性中获取打字速度
+        var speed = lineElement.getAttribute('data-speed') || 100; // 默认速度为 100 毫秒
+
+        function typing() {
+            if (textContent.charAt(index) === '<') {
+                var endIndex = textContent.indexOf('>', index) + 1;
+                lineElement.innerHTML += textContent.substring(index, endIndex);
+                index = endIndex; // 跳过HTML标签
+            } else {
+                lineElement.innerHTML += textContent.charAt(index);
+                index++;
+            }
+
+            if (index < textContent.length) {
+                setTimeout(typing, speed); // 每一行使用自定义的打字速度
+            }
+        }
+
+        typing(); // 启动打字机效果
+    }
+
+    // 使用 IntersectionObserver 监听是否进入视口
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting && !hasStarted) {
+                lines.forEach(function(lineElement) {
+                    typeWriter(lineElement); // 同时为每一行启动打字机效果
+                });
+                hasStarted = true; // 防止重复启动
+            }
+        });
+    }, { threshold: 0.1 });
+
+    // 监听 .text-mobile1 部分
+    observer.observe(document.querySelector('.text-mobile1'));
+});
+
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     // 选择叠加层和目标 section
     const overlay = document.querySelector('.overlay');
@@ -68,15 +146,18 @@ window.onscroll = function() {
 
 
 // 为 .text-mobile2 添加可见性
-window.addEventListener('scroll', function(){
-    const e = document.querySelector('.text-mobile2');
-    const position = e.getBoundingClientRect();
-    if(position.top < window.innerHeight && position.bottom >= 0) {
-        e.classList.add('visible');
-    } else {
-        e.classList.remove('visible');
+
+
+document.addEventListener('scroll', function() {
+    var element = document.querySelector('.text-mobile2');
+    var position = element.getBoundingClientRect();
+
+    // 如果元素在可视区域
+    if (position.top < window.innerHeight && position.bottom >= 0) {
+        element.classList.add('active');
     }
 });
+
 
 // 为 .text-mobile1 添加可见性
 window.addEventListener('scroll', function(){
