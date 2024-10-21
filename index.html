@@ -6,6 +6,7 @@
     <title>青年网络安全教育校园日</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="demo.css">
     <script src="swiper/swiper-bundle.min.js"></script>   
    
   
@@ -26,9 +27,11 @@
 <body>
     <nav id="navbar" style=" font-family: 'Microsoft YaHei';position: fixed; top: 0; left: 0; width: 100%;  padding: 20px;z-index: 1000; transition: background-color 0.5s, opacity 0.3s;">
         <ul style="list-style-type: none; margin: 0; padding: 0; display: flex; justify-content: left;">
+            
             <li style="margin-right: 5px;">
                 <img src="img\title.png" style="height: 50px;">
             </li>
+
             <li style="margin-right:400px">
                 <a  href="#index" style="color: #fff; text-decoration: none; font-size: 36px; font-weight: bold;">青年网络安全教育校园日</a>
             </li>
@@ -36,15 +39,19 @@
             <li style="margin-right: 40px;margin-top: 7px;">
                 <a class="aLink" href="#section4" >校园视角</a>
             </li>
+            
             <li style="margin-right: 40px;margin-top: 7px;">
                <a class="aLink" href="#section1" >网络安全法律法规</a> 
             </li>
+            
             <li style="margin-right: 40px;margin-top: 7px;">
                 <a class="aLink" href="#section3" >网络谣言</a>
             </li>
+            
             <li style="margin-top: 7px;">
                 <a class="aLink" href="#section2" >常见网络威胁</a>
             </li>
+        
         </ul>
     </nav>
     
@@ -99,7 +106,7 @@
             <h1 style="font-family: 'SimHei';">
                 <!-- 设置每行不同的打字速度 -->
                 <span class="lins" data-speed="100">你知道什么是网络安全吗?</span><br>
-                <span class="lins" data-speed="150">你具备网络安全素养吗?</span><br>
+                <span class="lins" data-speed="180">你具备网络安全素养吗?</span><br>
                 <span class="lins" data-speed="200">你想提升自己的网络安全素养吗?</span><br>
                 ......<br>
                 <span class="lins" data-speed="200">请点击</span>
@@ -329,7 +336,7 @@
 
 <section id="section2" class="content-block" style="background-image: url('img/背景2.jpg');">
     <div class="section-content">
-        <br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
         <h4 class="section-title custom-title">
             <span class="line"></span>
             <span class="title-text">< S4 常见的网络威胁 ></span>
@@ -345,29 +352,70 @@
                     <div class="scroll-images">
                         <a class="threatLink" href="threat/threat1.html" target="_blank"><img src="img/laws4.gif" alt="Image 1"><div class="image-text">不良信息影响</div>
                         </a>
-                        <a href="threat/threat2.html" target="_blank"><img src="img/laws1.gif" alt="Image 2"><div class="image-text">网络游戏成瘾</div></a>
+                        <a href="threat/threat4.html" target="_blank"><img src="img/laws2.gif" alt="Image 4"><div class="image-text">沉迷虚拟社交</div></a>
                         <a href="threat/threat3.html" target="_blank"><img src="img/laws3.gif"><div class="image-text">电信网络诈骗</div></a>
-                        <a href="threat/threat4.html" target="_blank"><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2t0cGp2c2xtbnlkNjk4NDQycDR2aW1sZnlyZDYwdWFjaGVjanNpaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/LNvv02BnKB6bxa7HMI/giphy.webp" alt="Image 4"><div class="image-text">沉迷虚拟社交</div></a>
-                        <a class="threatLink" href="threat/threat1.html" target="_blank"><img src="img/laws4.gif" alt="Image 1"><div class="image-text">不良信息影响</div></a>
                         <a href="threat/threat2.html" target="_blank"><img src="img/laws1.gif" alt="Image 2"><div class="image-text">网络游戏成瘾</div></a>
+                        <a class="threatLink" href="threat/threat1.html" target="_blank"><img src="img/laws4.gif" alt="Image 1"><div class="image-text">不良信息影响</div></a>
+                       <a href="threat/threat4.html" target="_blank"><img src="img/laws2.gif" alt="Image 4"><div class="image-text">沉迷虚拟社交</div></a>
                         <a href="threat/threat3.html" target="_blank"><img src="img/laws3.gif" alt="Image 3"><div class="image-text">电信网络诈骗</div></a>
-                        <a href="threat/threat4.html" target="_blank"><img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2t0cGp2c2xtbnlkNjk4NDQycDR2aW1sZnlyZDYwdWFjaGVjanNpaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/LNvv02BnKB6bxa7HMI/giphy.webp" alt="Image 4"><div class="image-text">沉迷虚拟社交</div></a>
+                         <a href="threat/threat2.html" target="_blank"><img src="img/laws1.gif" alt="Image 2"><div class="image-text">网络游戏成瘾</div></a>
                     </div> 
                 </div>
             </div>
         </div>
     </div>
     
-<div style="background-image: url('img/lastImg.png');z-index: 1000000;">
-<br>    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-</div>
+
+      
+
+    <div id='surface'></div>
+    <div id='caustics'></div>
+    <div id='bg'></div>
+    <div id='sun'>
+        <div id='sun_layer1'></div>
+        <div id='sun_layer2'></div>
+        <div id='sun_layer3'></div>
+    </div>
+
+    <svg>
+        <filter id="noise1">
+            <feTurbulence type="turbulence" baseFrequency=".05" numOctaves="1" seed="3" stitchTiles='stitch' />
+            <feDisplacementMap in="SourceGraphic" scale="10" />
+        </filter>
+    </svg>
+
+
+<div class="copyright-container">
+    <!-- 左边内容 -->
+    <div class="copyright-column">
+      <h2 class="copyright-title">版权声明</h2>
+      <p class="copyright-text">本网页及其内容（包括但不限于文本、图像、音频、视频、设计、代码等）受中华人民共和国《著作权法》及其他相关法律法规的保护。未经本站明确书面许可，任何人不得复制、转载、引用或以其他方式使用本网站的任何内容。</p>
+    </div>
+
+    <!-- 中间 Quick Links -->
+    <div class="copyright-column">
+      <h3 class="copyright-subtitle">Quick Links</h3>
+      <ul class="copyright-list">
+        <li><a href="#section4">校园风采</a></li>
+        <li><a href="#section1">法律法规</a></li>
+        <li><a href="#section2">网络威胁</a></li>
+        <li><a href="#section3">网络谣言</a></li>
+      </ul>
+    </div>
+
+    <!-- 右边 Contact Us -->
+    <div class="copyright-column">
+      <h3 class="copyright-subtitle">联系我们</h3><br>
+      <p class="copyright-contact">
+        📧 <a href="mailto:2927545739@qq.com">2927545739@qq.com</a><br><br>
+        📞 <a href="tel:18193632866">18193632866</a><br><br>
+        🐧<span>  2927545739</span>
+      </p>
+     
+    </div>
+  </div>
+
+
 </section>
 
 
